@@ -14,4 +14,6 @@ public interface IUserDAO {
     void save(User user);
 
     void deleteById(Long id);
+
+    User findByUserAndPass(String user, String pass);
 }
