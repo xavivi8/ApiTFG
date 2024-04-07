@@ -13,17 +13,17 @@ import lombok.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_user")
-    private Long id_user;
+    @Column(name = "id")
+    private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "email")
+    private String email;
 
-    @Column(name = "user")
-    private String user;
+    @Column(name = "user_name")
+    private String user_name;
 
-    @Column(name = "password")
-    private String password;
+    @Column(name = "pass")
+    private String pass;
 
     @Column(name = "image")
     private byte[] image;

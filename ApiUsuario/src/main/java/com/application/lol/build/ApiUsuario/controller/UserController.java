@@ -27,10 +27,10 @@ public class UserController {
             User user = userOptional.get();
 
             UserDTO userDTO = UserDTO.builder()
-                    .id_user(user.getId_user())
-                    .name(user.getName())
-                    .user(user.getUser())
-                    .password(user.getPassword())
+                    .id(user.getId())
+                    .email(user.getEmail())
+                    .user_name(user.getUser_name())
+                    .pass(user.getPass())
                     .image(user.getImage())
                     .build();
             return  ResponseEntity.ok(userDTO);

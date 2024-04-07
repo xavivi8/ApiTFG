@@ -36,7 +36,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public User findByUserAndPass(String user, String pass) {
-        return userDAO.findByUserAndPass(user, pass);
+    public User findByUserAndPass(String email, String pass) {
+        return userDAO.findByUserAndPass(email, pass);
     }
 }

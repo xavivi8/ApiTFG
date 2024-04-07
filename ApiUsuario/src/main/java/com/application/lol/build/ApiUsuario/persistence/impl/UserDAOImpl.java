@@ -35,7 +35,7 @@ public class UserDAOImpl implements IUserDAO {
     }
 
     @Override
-    public User findByUserAndPass(String user, String pass) {
-        return userRepository.findByUserAndPass(user, pass);
+    public User findByUserAndPass(String email, String pass) {
+        return userRepository.findByUserAndPass(email, pass);
     }
 }
