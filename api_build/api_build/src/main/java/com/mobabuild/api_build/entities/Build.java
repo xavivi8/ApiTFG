@@ -3,6 +3,9 @@ package com.mobabuild.api_build.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Setter
 @Getter
 @Builder
@@ -22,4 +25,7 @@ public class Build {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @OneToMany(mappedBy = "spell_set", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<SpellSet> spellSets = new ArrayList<>();
 }

@@ -3,6 +3,9 @@ package com.mobabuild.api_build.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Setter
 @Getter
 @Builder
@@ -33,4 +36,7 @@ public class Spell {
 
     @Column(name = "image")
     private byte[] image;
+
+    @ManyToMany(mappedBy = "spells")
+    private List<SpellSet> spellSets = new ArrayList<>();
 }
