@@ -37,4 +37,6 @@ public class User {
     * */
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Build> builds = new ArrayList<>();
+
+
 }
