@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cc45b13-3f5b-43e7-b41e-213110639f46" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/BuildController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/FavoriteBuildController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/ObjectController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/ObjectSetController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/RuneController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/RuneSetController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/SpellController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/SpellSetController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/ObjectDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/ObjectDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,18 +43,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven.api_build [spring-boot:run].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.api_build [spring-boot:start].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jmart/OneDrive/Documentos/GitHub/ApiTFG/api_build&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.api_build [spring-boot:run].executor": "Run",
+    "Maven.api_build [spring-boot:start].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/jmart/OneDrive/Documentos/GitHub/ApiTFG/api_build"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Maven.api_build [spring-boot:start]">
     <configuration name="api_build [spring-boot:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
