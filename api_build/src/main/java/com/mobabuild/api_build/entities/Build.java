@@ -26,12 +26,12 @@ public class Build {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @OneToMany(mappedBy = "spell_set", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToMany(mappedBy = "build", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<SpellSet> spellSets = new ArrayList<>();
 
-    @OneToMany(mappedBy = "object_set", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToMany(mappedBy = "build", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<ObjectSet> objectSet = new ArrayList<>();
 
-    @OneToMany(mappedBy = "rune_set", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToMany(mappedBy = "build", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<RuneSet> runeSet = new ArrayList<>();
 }
