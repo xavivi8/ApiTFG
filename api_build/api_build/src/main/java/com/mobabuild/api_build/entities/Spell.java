@@ -20,10 +20,10 @@ public class Spell {
     private Long id;
 
     @Column(name = "name")
-    private String email;
+    private String name;
 
     @Column(name = "champion_level")
-    private String champion_level;
+    private int champion_level;
 
     @Column(name = "game_mode")
     private String game_mode;
