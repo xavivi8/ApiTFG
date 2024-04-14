@@ -5,37 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cc45b13-3f5b-43e7-b41e-213110639f46" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/repository/BuildRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/repository/FavoriteBuildRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/repository/ObjectRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/repository/ObjectSetRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/repository/RuneRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/repository/RuneSetRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/repository/SpellRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/repository/SpellSetRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/ApiBuildApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/controller/dto/UserDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/entities/Build.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/entities/FavoriteBuild.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/entities/Object.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/entities/ObjectSet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/entities/Rune.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/entities/RuneSet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/entities/Spell.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/entities/SpellSet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/entities/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/persistence/IUserDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/persistence/impl/UserDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/service/IUserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/service/impl/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_build/src/test/java/com/mobabuild/api_build/ApiBuildApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -58,18 +48,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.api_build [spring-boot:run].executor": "Run",
-    "Maven.api_build [spring-boot:start].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/jmart/OneDrive/Documentos/GitHub/ApiTFG/api_build"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.api_build [spring-boot:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.api_build [spring-boot:start].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jmart/OneDrive/Documentos/GitHub/ApiTFG/api_build&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Maven.api_build [spring-boot:start]">
     <configuration name="api_build [spring-boot:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
