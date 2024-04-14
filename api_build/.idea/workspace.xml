@@ -4,43 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="339d811f-2b5e-44f6-ba53-aad0e590634f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../ApiUsuario/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiUsuario/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiUsuario/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiUsuario/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiUsuario/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiUsuario/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiUsuario/src/main/java/com/application/lol/build/ApiUsuario/ApiUsuarioApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiUsuario/src/main/java/com/application/lol/build/ApiUsuario/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiUsuario/src/main/java/com/application/lol/build/ApiUsuario/controller/dto/UserDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiUsuario/src/main/java/com/application/lol/build/ApiUsuario/entities/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiUsuario/src/main/java/com/application/lol/build/ApiUsuario/persistence/IUserDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiUsuario/src/main/java/com/application/lol/build/ApiUsuario/persistence/impl/UserDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiUsuario/src/main/java/com/application/lol/build/ApiUsuario/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiUsuario/src/main/java/com/application/lol/build/ApiUsuario/service/IUserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiUsuario/src/main/java/com/application/lol/build/ApiUsuario/service/impl/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiUsuario/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiUsuario/src/main/resources/banner.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ApiUsuario/src/test/java/com/application/lol/build/ApiUsuario/ApiUsuarioApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/ApiBuildApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/UserDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/entities/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/persistence/IUserDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/persistence/impl/UserDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IUserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/banner.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/mobabuild/api_build/ApiBuildApplicationTests.java" beforeDir="false" />
+    <list default="true" id="4cc45b13-3f5b-43e7-b41e-213110639f46" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/ApiBuildApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/controller/dto/UserDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/entities/Build.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/entities/FavoriteBuild.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/entities/Object.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/entities/ObjectSet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/entities/Rune.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/entities/RuneSet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/entities/Spell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/entities/SpellSet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/entities/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/persistence/IUserDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/persistence/impl/UserDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/service/IUserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/src/main/java/com/mobabuild/api_build/service/impl/UserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_build/src/test/java/com/mobabuild/api_build/ApiBuildApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,24 +43,99 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 7
-}]]></component>
-  <component name="ProjectId" id="2epMpo67dIQWT9LIiEwETxQbbtX" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2f67vjUfX6WteDbm4EL01XOTjDk" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Maven.api_build [spring-boot:run].executor": "Run",
+    "Maven.api_build [spring-boot:start].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/jmart/OneDrive/Documentos/GitHub/ApiTFG/api_build/api_build"
+    "last_opened_file_path": "C:/Users/jmart/OneDrive/Documentos/GitHub/ApiTFG/api_build"
   }
 }]]></component>
+  <component name="RunManager" selected="Maven.api_build [spring-boot:start]">
+    <configuration name="api_build [spring-boot:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="spring-boot:run" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="api_build [spring-boot:start]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="spring-boot:start" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Maven.api_build [spring-boot:start]" />
+      <item itemvalue="Maven.api_build [spring-boot:run]" />
+    </list>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -81,11 +146,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="339d811f-2b5e-44f6-ba53-aad0e590634f" name="Changes" comment="" />
-      <created>1712597252494</created>
+      <changelist id="4cc45b13-3f5b-43e7-b41e-213110639f46" name="Changes" comment="" />
+      <created>1713109906229</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1712597252494</updated>
+      <updated>1713109906229</updated>
     </task>
     <servers />
   </component>
