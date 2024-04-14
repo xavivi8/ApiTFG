@@ -28,4 +28,10 @@ public class Build {
 
     @OneToMany(mappedBy = "spell_set", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<SpellSet> spellSets = new ArrayList<>();
+
+    @OneToMany(mappedBy = "object_set", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<SpellSet> objectSet = new ArrayList<>();
+
+    @OneToMany(mappedBy = "rune_set", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<SpellSet> runeSet = new ArrayList<>();
 }
