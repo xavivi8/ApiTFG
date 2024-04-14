@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cc45b13-3f5b-43e7-b41e-213110639f46" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/persistence/impl/BuildDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/persistence/impl/FavoriteBuildDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/persistence/impl/ObjectDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/persistence/impl/ObjectSetDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/persistence/impl/RuneDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/persistence/impl/RuneSetDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/persistence/impl/SpellDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/persistence/impl/SpellSetDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IBuildService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IFavoriteBuildService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IObjectService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IObjectSetService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IRuneService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IRuneSetService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/ISpellService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/ISpellSetService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
