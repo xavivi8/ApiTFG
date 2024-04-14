@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cc45b13-3f5b-43e7-b41e-213110639f46" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/BuildDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/FavoriteBuildDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/ObjectDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/ObjectSetDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/RuneDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/RuneSetDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/SpellDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/SpellSetDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/BuildController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/FavoriteBuildController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/ObjectController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/ObjectSetController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/RuneController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/RuneSetController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/SpellController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/SpellSetController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
