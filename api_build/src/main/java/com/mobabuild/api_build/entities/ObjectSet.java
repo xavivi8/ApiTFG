@@ -32,5 +32,5 @@ public class ObjectSet {
             joinColumns = @JoinColumn(name = "object_set_id"),
             inverseJoinColumns = @JoinColumn(name = "object_id")
     )
-    private List<Spell> objects = new ArrayList<>();
+    private List<Object> objects = new ArrayList<>();
 }
