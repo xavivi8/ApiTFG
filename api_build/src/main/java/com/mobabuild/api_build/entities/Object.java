@@ -20,5 +20,5 @@ public class Object {
     private Long id;
 
     @ManyToMany(mappedBy = "objects")
-    private List<SpellSet> objectSets = new ArrayList<>();
+    private List<ObjectSet> objectSets = new ArrayList<>();
 }
