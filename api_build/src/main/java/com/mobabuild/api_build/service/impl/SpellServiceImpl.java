@@ -2,6 +2,7 @@ package com.mobabuild.api_build.service.impl;
 
 import com.mobabuild.api_build.entities.Spell;
 import com.mobabuild.api_build.persistence.ISpellDAO;
+import com.mobabuild.api_build.service.ISpellService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class SpellServiceImpl implements ISpellDAO {
+public class SpellServiceImpl implements ISpellService {
 
     @Autowired
     private ISpellDAO spellDAO;
