@@ -27,6 +27,10 @@ public class Build {
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "champions_id")
+    private Champions champions;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "favorite_build_id")
     private FavoriteBuild favoriteBuild;
 
