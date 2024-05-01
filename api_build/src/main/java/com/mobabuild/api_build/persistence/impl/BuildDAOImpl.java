@@ -1,7 +1,6 @@
 package com.mobabuild.api_build.persistence.impl;
 
 import com.mobabuild.api_build.entities.Build;
-import com.mobabuild.api_build.entities.User;
 import com.mobabuild.api_build.persistence.IBuildDAO;
 import com.mobabuild.api_build.repository.BuildRepository;
 import org.springframework.beans.factory.annotation.Autowired;
