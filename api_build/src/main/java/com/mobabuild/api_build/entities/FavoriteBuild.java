@@ -23,6 +23,8 @@ public class FavoriteBuild {
     @JoinColumn(name = "user_id") // Nombre de la columna que actúa como clave foránea
     private User user;
 
-    @OneToMany(mappedBy = "favoriteBuild", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    private List<Build> builds = new ArrayList<>();
+    @ElementCollection
+    @CollectionTable(name = "favorite_builds", joinColumns = @JoinColumn(name = "favorite_build_id"))
+    @Column(name = "build_id")
+    private List<Long> builds = new ArrayList<>();
 }
