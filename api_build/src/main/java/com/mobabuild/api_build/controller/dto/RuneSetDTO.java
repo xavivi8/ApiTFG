@@ -1,5 +1,6 @@
 package com.mobabuild.api_build.controller.dto;
 
+import com.mobabuild.api_build.entities.Build;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,4 +19,5 @@ public class RuneSetDTO {
     private String secondary_rune;
     private String secondary_sub_rune;
     private String additional_advantages;
+    private Build build;
 }
