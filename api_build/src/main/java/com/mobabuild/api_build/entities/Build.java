@@ -30,10 +30,6 @@ public class Build {
     @JoinColumn(name = "champions_id")
     private Champions champions;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "favorite_build_id")
-    private FavoriteBuild favoriteBuild;
-
     @OneToMany(mappedBy = "build", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<SpellSet> spellSets = new ArrayList<>();
 
