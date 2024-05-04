@@ -34,4 +34,9 @@ public class ObjectServiceImpl implements IObjectService {
     public void deleteById(Long id) {
         objectDAO.deleteById(id);
     }
+
+    @Override
+    public int setObject(String name) {
+        return objectDAO.setObject(name);
+    }
 }
