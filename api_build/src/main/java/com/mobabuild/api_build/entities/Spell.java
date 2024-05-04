@@ -1,5 +1,6 @@
 package com.mobabuild.api_build.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -38,5 +39,6 @@ public class Spell {
     private byte[] image;
 
     @ManyToMany(mappedBy = "spells")
+    @JsonIgnore
     private List<SpellSet> spellSets = new ArrayList<>();
 }

@@ -1,5 +1,6 @@
 package com.mobabuild.api_build.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,6 +23,7 @@ public class Object {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "objects")
+    @ManyToMany(mappedBy = "objects", cascade = CascadeType.ALL, fetch =  FetchType.LAZY)
+    @JsonIgnore
     private List<ObjectSet> objectSets = new ArrayList<>();
 }

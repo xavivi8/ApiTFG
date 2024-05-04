@@ -1,5 +1,6 @@
 package com.mobabuild.api_build.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -36,8 +37,10 @@ public class User {
     * orphanRemoval = true para eliminar las builds asociadas al usuario
     * */
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JsonIgnore
     private List<Build> builds = new ArrayList<>();
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private FavoriteBuild favoriteBuild;
 }

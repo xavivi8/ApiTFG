@@ -1,5 +1,6 @@
 package com.mobabuild.api_build.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,6 +22,7 @@ public class Champions {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "champions", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "champions", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JsonIgnore
     private List<Build> builds;
 }

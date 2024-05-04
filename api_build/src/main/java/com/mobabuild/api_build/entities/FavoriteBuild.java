@@ -1,5 +1,6 @@
 package com.mobabuild.api_build.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,6 +22,7 @@ public class FavoriteBuild {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id") // Nombre de la columna que actúa como clave foránea
+    @JsonIgnore
     private User user;
 
     @ElementCollection

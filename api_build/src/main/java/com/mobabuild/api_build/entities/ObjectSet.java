@@ -1,5 +1,6 @@
 package com.mobabuild.api_build.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,6 +25,7 @@ public class ObjectSet {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "build", nullable = false)
+    @JsonIgnore
     private Build build;
 
     @ManyToMany
@@ -32,5 +34,6 @@ public class ObjectSet {
             joinColumns = @JoinColumn(name = "object_set_id"),
             inverseJoinColumns = @JoinColumn(name = "object_id")
     )
+    @JsonIgnore
     private List<Object> objects = new ArrayList<>();
 }

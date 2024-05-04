@@ -1,5 +1,6 @@
 package com.mobabuild.api_build.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,18 +25,23 @@ public class Build {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonIgnore
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "champions_id")
+    @JsonIgnore
     private Champions champions;
 
     @OneToMany(mappedBy = "build", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JsonIgnore
     private List<SpellSet> spellSets = new ArrayList<>();
 
     @OneToMany(mappedBy = "build", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JsonIgnore
     private List<ObjectSet> objectSet = new ArrayList<>();
 
     @OneToMany(mappedBy = "build", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JsonIgnore
     private List<RuneSet> runeSet = new ArrayList<>();
 }

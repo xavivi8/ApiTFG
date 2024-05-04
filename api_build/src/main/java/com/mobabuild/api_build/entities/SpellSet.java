@@ -1,5 +1,6 @@
 package com.mobabuild.api_build.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,6 +25,7 @@ public class SpellSet {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "build", nullable = false)
+    @JsonIgnore
     private Build build;
 
     @ManyToMany
@@ -32,5 +34,6 @@ public class SpellSet {
             joinColumns = @JoinColumn(name = "spell_set_id"),
             inverseJoinColumns = @JoinColumn(name = "spell_id")
     )
+    @JsonIgnore
     private List<Spell> spells = new ArrayList<>();
 }
