@@ -14,4 +14,6 @@ public interface IObjectService {
     void save(Object object);
 
     void deleteById(Long id);
+
+    int setObject(String name);
 }
