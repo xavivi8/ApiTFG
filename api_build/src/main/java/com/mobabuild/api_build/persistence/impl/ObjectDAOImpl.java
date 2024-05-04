@@ -34,4 +34,9 @@ public class ObjectDAOImpl implements IObjectDAO {
     public void deleteById(Long id) {
         objectRepository.deleteById(id);
     }
+
+    @Override
+    public int setObject(String name) {
+        return objectRepository.setObject(name);
+    }
 }
