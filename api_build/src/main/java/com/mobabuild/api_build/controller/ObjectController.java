@@ -21,6 +21,25 @@ public class ObjectController {
     @Autowired
     private IObjectService objectService;
 
+    @GetMapping("/findById/{id}")
+    public ResponseEntity<?> findById(@PathVariable Long id){
+       Optional<Object> objectOptional = objectService.findById(id);
+
+        if(objectOptional.isPresent()){
+            Object object = objectOptional.get();
+
+            ObjectDTO objectDTO = ObjectDTO.builder()
+                    .id(object.getId())
+                    .name(object.getName())
+                    .objectSets(object.getObjectSets())
+                    .build();
+
+            return  ResponseEntity.ok(objectDTO);
+        }
+
+        return  ResponseEntity.notFound().build();
+    }
+
     @GetMapping("/findAll")
     public ResponseEntity<?> findAll(){
         List<Object> objects = objectService.findAll();
