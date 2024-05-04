@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -19,24 +21,35 @@ public class ObjectController {
     @Autowired
     private IObjectService objectService;
 
-    @GetMapping("/find/{id}")
-    public ResponseEntity<?> findById(@PathVariable Long id){
-        Optional<Object> objectOptional = objectService.findById(id);
+    @GetMapping("/findAll")
+    public ResponseEntity<?> findAll(){
+        List<Object> objects = objectService.findAll();
 
-        if(objectOptional.isPresent()){
-            Object object = objectOptional.get();
-
-            ObjectDTO objectDTO = ObjectDTO.builder()
-                    .id(object.getId())
-                    .name(object.getName())
-                    .objectSets(object.getObjectSets())
-                    .build();
-
-            return ResponseEntity.ok(objectDTO);
+        if(!objects.isEmpty()){
+            List<ObjectDTO> objectDTOs = new ArrayList<>();
+            for(Object object : objects){
+                ObjectDTO objectDTO = ObjectDTO.builder()
+                        .id(object.getId())
+                        .name(object.getName())
+                        .objectSets(object.getObjectSets())
+                        .build();
+                objectDTOs.add(objectDTO);
+            }
+            return ResponseEntity.ok(objectDTOs);
         }
 
         return  ResponseEntity.notFound().build();
     }
+
+
+    @GetMapping("/deleteById/{id}")
+    public ResponseEntity<?> deleteById(@PathVariable Long id){
+        objectService.deleteById(id);
+
+        return ResponseEntity.ok("ok");
+    }
+
+
 
     @GetMapping("/setObject/{name}")
     public ResponseEntity<?> setObject(@PathVariable String name){
@@ -44,7 +57,7 @@ public class ObjectController {
 
         if(response == 1){
 
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok(1);
         }
 
         return  ResponseEntity.notFound().build();
