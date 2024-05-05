@@ -14,7 +14,7 @@ public class RuneDTO {
     private Long id;
     private String name;
     private String row;
-    private String group;
+    private String group_name;
     private String description;
     private String long_description;
     private byte[] image;

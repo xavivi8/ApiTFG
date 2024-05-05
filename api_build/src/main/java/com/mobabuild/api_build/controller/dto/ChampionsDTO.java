@@ -16,6 +16,6 @@ import java.util.List;
 public class ChampionsDTO {
 
     private Long id;
-    private String buildName;
+    private String name;
     private List<Build> builds;
 }
