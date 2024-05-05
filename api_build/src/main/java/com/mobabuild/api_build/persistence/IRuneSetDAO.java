@@ -14,4 +14,5 @@ public interface IRuneSetDAO {
     void save(RuneSet runeSet);
 
     void deleteById(Long id);
+
 }

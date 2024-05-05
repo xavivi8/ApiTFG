@@ -34,4 +34,14 @@ public class RuneDAOImpl implements IRuneDAO {
     public void deleteById(Long id) {
         runeRepository.deleteById(id);
     }
+
+    @Override
+    public int insertRune(String name, String row, String group_name, String description, String long_description, byte[] image) {
+        return runeRepository.insertRune(name, row, group_name, description, long_description, image);
+    }
+
+    @Override
+    public int insertRuneWithoutImage(String name, String row, String group_name, String description, String long_description) {
+        return runeRepository.insertRuneWithoutImage(name, row, group_name, description, long_description);
+    }
 }

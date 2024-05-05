@@ -14,4 +14,8 @@ public interface IRuneService {
     void save(Rune rune);
 
     void deleteById(Long id);
+
+    int insertRune(String name, String row, String group_name, String description, String long_description, byte[] image);
+
+    int insertRuneWithoutImage(String name, String row, String group_name, String description, String long_description);
 }
