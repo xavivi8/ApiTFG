@@ -14,4 +14,6 @@ public interface IChampionsService {
     void save(Champions champions);
 
     void deleteById(Long id);
+
+    int setChampion(String name);
 }

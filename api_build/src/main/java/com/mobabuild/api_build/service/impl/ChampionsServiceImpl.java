@@ -36,4 +36,9 @@ public class ChampionsServiceImpl implements IChampionsService {
     public void deleteById(Long id) {
         championsDAO.deleteById(id);
     }
+
+    @Override
+    public int setChampion(String name) {
+        return championsDAO.setChampion(name);
+    }
 }

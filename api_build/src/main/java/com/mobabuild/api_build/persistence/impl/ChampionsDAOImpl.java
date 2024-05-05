@@ -34,4 +34,9 @@ public class ChampionsDAOImpl implements IChampionsDAO {
     public void deleteById(Long id) {
         championsRepository.deleteById(id);
     }
+
+    @Override
+    public int setChampion(String name) {
+        return championsRepository.setChampion(name);
+    }
 }

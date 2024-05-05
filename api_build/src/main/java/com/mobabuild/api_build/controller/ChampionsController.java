@@ -69,4 +69,16 @@ public class ChampionsController {
         return ResponseEntity.ok("ok");
     }
 
+    @GetMapping("/setChampion/{name}")
+    public ResponseEntity<?> setChampion(@PathVariable String name){
+        int response = championsService.setChampion(name);
+
+        if(response == 1){
+
+            return ResponseEntity.ok(1);
+        }
+
+        return  ResponseEntity.notFound().build();
+    }
+
 }
