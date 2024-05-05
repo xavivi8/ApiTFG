@@ -79,13 +79,13 @@ public class RuneController {
         if (runeDTO.getImage() == null || runeDTO.getImage().length == 0) {
             // El campo de imagen está vacío o nulo
             // Realiza la inserción sin la imagen
-            int result = runeService.insertRuneWithoutImage(runeDTO.getName(), runeDTO.getRow(), runeDTO.getGroup_name(), runeDTO.getDescription(), runeDTO.getLong_description());
+            int result = runeService.insertRuneWithoutImage(runeDTO.getName(), runeDTO.getRowType(), runeDTO.getGroup_name(), runeDTO.getDescription(), runeDTO.getLong_description());
 
             return ResponseEntity.ok(result);
 
         } else {
 
-            int result = runeService.insertRune(runeDTO.getName(), runeDTO.getRow(), runeDTO.getGroup_name(), runeDTO.getDescription(), runeDTO.getLong_description(), runeDTO.getImage());
+            int result = runeService.insertRune(runeDTO.getName(), runeDTO.getRowType(), runeDTO.getGroup_name(), runeDTO.getDescription(), runeDTO.getLong_description(), runeDTO.getImage());
 
             return ResponseEntity.ok(result);
         }

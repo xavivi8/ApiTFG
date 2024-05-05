@@ -13,7 +13,7 @@ public class RuneDTO {
 
     private Long id;
     private String name;
-    private String row;
+    private String rowType;
     private String group_name;
     private String description;
     private String long_description;

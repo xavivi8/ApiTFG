@@ -19,7 +19,7 @@ public class Rune {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "row")
+    @Column(name = "rowType")
     private String row;
 
     @Column(name = "group_name")
