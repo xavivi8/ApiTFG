@@ -5,10 +5,7 @@ import com.mobabuild.api_build.entities.Object;
 import com.mobabuild.api_build.service.IObjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +19,7 @@ public class ObjectController {
     private IObjectService objectService;
 
     @GetMapping("/findById/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> findById(@PathVariable Long id){
        Optional<Object> objectOptional = objectService.findById(id);
 
@@ -41,6 +39,7 @@ public class ObjectController {
     }
 
     @GetMapping("/findAll")
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> findAll(){
         List<Object> objects = objectService.findAll();
 
@@ -62,6 +61,7 @@ public class ObjectController {
 
 
     @GetMapping("/deleteById/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> deleteById(@PathVariable Long id){
         objectService.deleteById(id);
 
@@ -71,6 +71,7 @@ public class ObjectController {
 
 
     @GetMapping("/setObject/{name}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> setObject(@PathVariable String name){
         int response = objectService.setObject(name);
 
