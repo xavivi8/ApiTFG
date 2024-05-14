@@ -63,9 +63,12 @@ public class ObjectController {
     @GetMapping("/deleteById/{id}")
     @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> deleteById(@PathVariable Long id){
-        objectService.deleteById(id);
-
-        return ResponseEntity.ok("ok");
+        try {
+            objectService.deleteById(id);
+            return ResponseEntity.ok(true);
+        } catch (Exception e) {
+            return ResponseEntity.ok(false);
+        }
     }
 
 
