@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.hibernate.Hibernate;
 
 import java.util.Optional;
 
@@ -25,6 +26,9 @@ public class UserController {
 
         if(userOptional.isPresent()){
             User user = userOptional.get();
+
+            // Inicializar la colección authorities antes de acceder a ella
+            Hibernate.initialize(user.getAuthorities());
 
             UserDTO userDTO = UserDTO.builder()
                     .id(user.getId())

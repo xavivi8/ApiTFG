@@ -1,5 +1,6 @@
 package com.mobabuild.api_build.controller.dto;
 
+import com.mobabuild.api_build.entities.Authority;
 import com.mobabuild.api_build.entities.Build;
 import com.mobabuild.api_build.entities.FavoriteBuild;
 import lombok.AllArgsConstructor;
@@ -20,6 +21,7 @@ public class UserDTO {
     private String user_name;
     private String pass;
     private byte[] image;
-    private List<Build> builds = new ArrayList<>();
-    private FavoriteBuild favoriteBuild;
+    // private List<Build> builds = new ArrayList<>(); // No cargar builds aquí
+    // private FavoriteBuild favoriteBuild; // No cargar favoriteBuild aquí
+    // private List<Authority> authorities; // No cargar authorities aquí
 }
