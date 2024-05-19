@@ -39,4 +39,10 @@ public class ObjectDAOImpl implements IObjectDAO {
     public int setObject(String name) {
         return objectRepository.setObject(name);
     }
+
+    @Override
+    public boolean  updateObjectName(Long id, String name) {
+        int rowsAffected = objectRepository.updateObjectName(id, name);
+        return rowsAffected > 0;
+    }
 }

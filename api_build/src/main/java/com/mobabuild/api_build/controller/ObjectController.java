@@ -19,7 +19,6 @@ public class ObjectController {
     private IObjectService objectService;
 
     @GetMapping("/findById/{id}")
-    @CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8080"})
     public ResponseEntity<?> findById(@PathVariable Long id){
         Optional<Object> objectOptional = objectService.findById(id);
 
@@ -39,7 +38,6 @@ public class ObjectController {
     }
 
     @GetMapping("/findAll")
-    @CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8080"})
     public ResponseEntity<?> findAll(){
         List<Object> objects = objectService.findAll();
 
@@ -61,7 +59,6 @@ public class ObjectController {
 
 
     @GetMapping("/deleteById/{id}")
-    @CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8080"})
     public ResponseEntity<?> deleteById(@PathVariable Long id){
         try {
             objectService.deleteById(id);
@@ -74,7 +71,6 @@ public class ObjectController {
 
 
     @GetMapping("/setObject/{name}")
-    @CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8080"})
     public ResponseEntity<?> setObject(@PathVariable String name){
         int response = objectService.setObject(name);
 
@@ -84,5 +80,15 @@ public class ObjectController {
         }
 
         return  ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/updateObjectById/{id}/{name}")
+    public ResponseEntity<String> updateObjectName(@PathVariable Long id, @PathVariable String name) {
+        boolean isUpdated = objectService.updateObjectName(id, name);
+        if (isUpdated) {
+            return ResponseEntity.ok("1");
+        } else {
+            return ResponseEntity.status(404).body("0");
+        }
     }
 }

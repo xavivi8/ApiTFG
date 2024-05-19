@@ -13,5 +13,10 @@ public interface ObjectRepository extends CrudRepository<Object, Long> {
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO object (name) VALUES (:name)", nativeQuery = true)
-    int setObject(String name);
+    int setObject(String name); // Cambio de tipo de retorno a Object
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Object o SET o.name = :name WHERE o.id = :id")
+    int updateObjectName(Long id, String name);
 }

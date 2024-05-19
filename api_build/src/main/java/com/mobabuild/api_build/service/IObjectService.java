@@ -16,4 +16,6 @@ public interface IObjectService {
     void deleteById(Long id);
 
     int setObject(String name);
+
+    boolean updateObjectName(Long id, String name);
 }

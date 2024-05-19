@@ -39,4 +39,9 @@ public class ObjectServiceImpl implements IObjectService {
     public int setObject(String name) {
         return objectDAO.setObject(name);
     }
+
+    @Override
+    public boolean updateObjectName(Long id, String name) {
+        return objectDAO.updateObjectName(id, name);
+    }
 }
