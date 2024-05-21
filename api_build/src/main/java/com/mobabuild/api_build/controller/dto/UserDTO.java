@@ -23,5 +23,5 @@ public class UserDTO {
     private byte[] image;
     // private List<Build> builds = new ArrayList<>(); // No cargar builds aquí
     // private FavoriteBuild favoriteBuild; // No cargar favoriteBuild aquí
-    // private List<Authority> authorities; // No cargar authorities aquí
+    private List<Authority> authorities; // No cargar authorities aquí
 }

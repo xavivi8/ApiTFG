@@ -11,9 +11,13 @@ public interface IUserDAO {
 
     Optional<User> findById(Long id);
 
-    void save(User user);
+    User save(User user);
 
     void deleteById(Long id);
 
     User findByUserAndPass(String email, String pass);
+
+    void updateUser(String email, String user_name, String pass, Long id);
+
+    void addUserWithoutImage(String email, String user_name, String pass);
 }

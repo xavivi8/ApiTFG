@@ -25,8 +25,8 @@ public class UserDAOImpl implements IUserDAO {
     }
 
     @Override
-    public void save(User user) {
-        userRepository.save(user);
+    public User save(User user) {
+        return userRepository.save(user);
     }
 
     @Override
@@ -37,5 +37,15 @@ public class UserDAOImpl implements IUserDAO {
     @Override
     public User findByUserAndPass(String email, String pass) {
         return userRepository.findByUserAndPass(email, pass);
+    }
+
+    @Override
+    public void updateUser(String email, String user_name, String pass, Long id) {
+        userRepository.updateUser(email, user_name, pass, id);
+    }
+
+    @Override
+    public void addUserWithoutImage(String email, String user_name, String pass) {
+        userRepository.addUserWithoutImage(email, user_name, pass);
     }
 }

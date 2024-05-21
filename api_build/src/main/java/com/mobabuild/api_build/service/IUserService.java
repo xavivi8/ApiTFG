@@ -11,9 +11,13 @@ public interface IUserService {
 
     Optional<User> findById(Long id);
 
-    void save(User user);
+    User save(User user);
 
     void deleteById(Long id);
 
     User findByUserAndPass(String email, String pass);
+
+    User updateUser(Long id, String email, String user_name, String pass);
+
+    User addUserWithoutImage(String email, String user_name, String pass);
 }
