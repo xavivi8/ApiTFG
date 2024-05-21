@@ -5,9 +5,11 @@ import com.mobabuild.api_build.persistence.IAuthorityDAO;
 import com.mobabuild.api_build.service.IAuthorityService;
 import com.mobabuild.api_build.utils.AuthorityName;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class AuthorityServiceImpl implements IAuthorityService {
 
     @Autowired
