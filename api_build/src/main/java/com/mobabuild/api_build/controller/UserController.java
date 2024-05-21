@@ -1,6 +1,7 @@
 package com.mobabuild.api_build.controller;
 
 import com.mobabuild.api_build.controller.dto.UserDTO;
+import com.mobabuild.api_build.controller.request.AddUserRequest;
 import com.mobabuild.api_build.entities.Authority;
 import com.mobabuild.api_build.entities.User;
 import com.mobabuild.api_build.service.IAuthorityService;
@@ -70,8 +71,14 @@ public class UserController {
     }
 
     // Endpoint para añadir un usuario sin imagen usando GET
-    @GetMapping("/add")
-    public ResponseEntity<UserDTO> addUserWithoutImage(@RequestParam String email, @RequestParam String userName, @RequestParam String pass, @RequestParam List<String> authorityNames) {
+    @PostMapping("/add")
+    public ResponseEntity<UserDTO> addUserWithoutImage(@RequestBody AddUserRequest addUserRequest) {
+        // Extraer los datos del objeto de solicitud
+        String email = addUserRequest.getEmail();
+        String userName = addUserRequest.getUserName();
+        String pass = addUserRequest.getPass();
+        List<String> authorityNames = addUserRequest.getAuthorityNames();
+
         // Crea una lista para almacenar las autoridades asociadas al nuevo usuario
         List<Authority> authorities = new ArrayList<>();
 
