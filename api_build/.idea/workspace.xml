@@ -5,19 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c1c4298-fff0-4c64-9625-9fa5c8d7fce2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/persistence/IAuthorityDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/persistence/impl/AuthorityDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IAuthorityService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/AuthorityServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/config/CorsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/ObjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/ObjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/persistence/IObjectDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/persistence/IObjectDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/persistence/impl/ObjectDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/persistence/impl/ObjectDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/repository/ObjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/repository/ObjectRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IObjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IObjectService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/ObjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/ObjectServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/persistence/IUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/persistence/IUserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/persistence/impl/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/persistence/impl/UserDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -41,17 +53,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ApiBuildApplication.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ApiBuildApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="ApiBuildApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.mobabuild.api_build.ApiBuildApplication" />
