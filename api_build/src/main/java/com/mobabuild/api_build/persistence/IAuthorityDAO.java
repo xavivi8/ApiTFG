@@ -8,4 +8,6 @@ import java.util.Optional;
 public interface IAuthorityDAO {
 
     Optional<Authority> findByName(AuthorityName name);
+
+    Iterable<Authority> findAll();
 }
