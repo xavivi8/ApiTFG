@@ -19,4 +19,9 @@ public class AuthorityServiceImpl implements IAuthorityService {
     public Optional<Authority> findByName(AuthorityName name) {
         return authorityDAO.findByName(name);
     }
+
+    @Override
+    public Iterable<Authority> findAll() {
+        return authorityDAO.findAll();
+    }
 }
