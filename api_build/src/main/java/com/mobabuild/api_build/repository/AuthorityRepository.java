@@ -12,4 +12,7 @@ import java.util.Optional;
 public interface AuthorityRepository extends CrudRepository<Authority, Long>{
 
     Optional<Authority> findByName(AuthorityName name);
+
+    @Override
+    Iterable<Authority> findAll();
 }
