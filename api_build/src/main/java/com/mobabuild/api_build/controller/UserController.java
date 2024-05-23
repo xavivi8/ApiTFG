@@ -7,8 +7,12 @@ import com.mobabuild.api_build.entities.User;
 import com.mobabuild.api_build.service.IAuthorityService;
 import com.mobabuild.api_build.service.IUserService;
 import com.mobabuild.api_build.utils.AuthorityName;
+import org.apache.logging.log4j.message.Message;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.hibernate.Hibernate;
 
@@ -72,7 +76,10 @@ public class UserController {
 
     // Endpoint para añadir un usuario sin imagen usando GET
     @PostMapping("/add")
-    public ResponseEntity<UserDTO> addUserWithoutImage(@RequestBody AddUserRequest addUserRequest) {
+    public ResponseEntity<UserDTO> addUserWithoutImage(@Validated @RequestBody AddUserRequest addUserRequest, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()){
+            return  ResponseEntity.notFound().build();
+        }
         // Extraer los datos del objeto de solicitud
         String email = addUserRequest.getEmail();
         String userName = addUserRequest.getUserName();
