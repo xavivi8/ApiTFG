@@ -9,4 +9,6 @@ public interface IAuthorityService {
 
     Optional<Authority> findByName(AuthorityName name);
 
+    Iterable<Authority> findAll();
+
 }
