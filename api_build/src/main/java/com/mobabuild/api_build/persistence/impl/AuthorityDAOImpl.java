@@ -20,4 +20,9 @@ public class AuthorityDAOImpl implements IAuthorityDAO {
     public Optional<Authority> findByName(AuthorityName name) {
         return authorityRepository.findByName(name);
     }
+
+    @Override
+    public Iterable<Authority> findAll() {
+        return authorityRepository.findAll();
+    }
 }
