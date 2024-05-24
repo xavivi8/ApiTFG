@@ -1,5 +1,6 @@
 package com.mobabuild.api_build.service;
 
+import com.mobabuild.api_build.controller.comand.UserComand;
 import com.mobabuild.api_build.entities.User;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public interface IUserService {
 
     User findByUserAndPass(String email, String pass);
 
-    User updateUser(User newUser);
+    User updateUser(UserComand newUser);
 
     User addUserWithoutImage(String email, String user_name, String pass);
 }
