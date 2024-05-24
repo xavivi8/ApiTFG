@@ -7,9 +7,7 @@ import com.mobabuild.api_build.entities.User;
 import com.mobabuild.api_build.service.IAuthorityService;
 import com.mobabuild.api_build.service.IUserService;
 import com.mobabuild.api_build.utils.AuthorityName;
-import org.apache.logging.log4j.message.Message;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -54,24 +52,14 @@ public class UserController {
         return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/update")
-    public ResponseEntity<UserDTO> updateUser(
-            @RequestParam Long id,
-            @RequestParam String email,
-            @RequestParam String userName,
-            @RequestParam String pass) {
-
-        User updatedUser = userService.updateUser(id, email, userName, pass);
-        Hibernate.initialize(updatedUser.getAuthorities());
-        UserDTO userDTO = UserDTO.builder()
-                .id(updatedUser.getId())
-                .email(updatedUser.getEmail())
-                .user_name(updatedUser.getUser_name())
-                .pass(updatedUser.getPass())
-                .image(updatedUser.getImage())
-                .authorities(updatedUser.getAuthorities())
-                .build();
-        return ResponseEntity.ok(userDTO);
+    @PutMapping("/update")
+    public ResponseEntity<?> updateUser(@RequestBody User user) {
+        try {
+            User updatedUser = userService.updateUser(user);
+            return ResponseEntity.ok(updatedUser);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     // Endpoint para añadir un usuario sin imagen usando GET

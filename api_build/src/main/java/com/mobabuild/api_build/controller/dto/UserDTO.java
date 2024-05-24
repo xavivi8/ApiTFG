@@ -21,7 +21,7 @@ public class UserDTO {
     private String user_name;
     private String pass;
     private byte[] image;
-    // private List<Build> builds = new ArrayList<>(); // No cargar builds aquí
-    // private FavoriteBuild favoriteBuild; // No cargar favoriteBuild aquí
+    private List<Build> builds = new ArrayList<>(); // No cargar builds aquí
+    private FavoriteBuild favoriteBuild; // No cargar favoriteBuild aquí
     private List<Authority> authorities; // No cargar authorities aquí
 }

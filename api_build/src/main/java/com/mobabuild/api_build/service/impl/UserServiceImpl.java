@@ -1,11 +1,13 @@
 package com.mobabuild.api_build.service.impl;
 
+import com.mobabuild.api_build.entities.Authority;
 import com.mobabuild.api_build.entities.User;
 import com.mobabuild.api_build.persistence.IUserDAO;
 import com.mobabuild.api_build.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,16 +43,21 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public User updateUser(Long id, String email, String user_name, String pass) {
-        Optional<User> existingUserOptional = userDAO.findById(id);
+    public User updateUser(User newUser) {
+        Optional<User> existingUserOptional = userDAO.findById(newUser.getId());
+        List<Authority> authorities = new ArrayList<>();
         if (existingUserOptional.isPresent()) {
             User existingUser = existingUserOptional.get();
-            existingUser.setEmail(email);
-            existingUser.setUser_name(user_name);
-            existingUser.setPass(pass);
+            existingUser.setEmail(newUser.getEmail());
+            existingUser.setUser_name(newUser.getUser_name());
+            existingUser.setPass(newUser.getPass());
+            existingUser.setImage(newUser.getImage());
+            existingUser.setAuthorities(newUser.getAuthorities());
+            existingUser.setBuilds(newUser.getBuilds());
+            existingUser.setFavoriteBuild(newUser.getFavoriteBuild());
             return userDAO.save(existingUser);
         } else {
-            throw new IllegalArgumentException("User not found");
+            throw new RuntimeException("User not found");
         }
     }
 
