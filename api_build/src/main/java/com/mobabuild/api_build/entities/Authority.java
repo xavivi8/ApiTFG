@@ -4,6 +4,8 @@ import com.mobabuild.api_build.utils.AuthorityName;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Setter
 @Getter
 @Builder
@@ -25,4 +27,7 @@ public class Authority {
     @Column(name = "name")
     @Enumerated(EnumType.STRING)
     private AuthorityName name;
+
+    @ManyToMany(mappedBy = "authorities")
+    private List<User> users;
 }
