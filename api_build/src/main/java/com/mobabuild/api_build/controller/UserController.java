@@ -1,5 +1,6 @@
 package com.mobabuild.api_build.controller;
 
+import com.mobabuild.api_build.controller.comand.UserComand;
 import com.mobabuild.api_build.controller.dto.UserDTO;
 import com.mobabuild.api_build.controller.request.AddUserRequest;
 import com.mobabuild.api_build.entities.Authority;
@@ -53,9 +54,9 @@ public class UserController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<?> updateUser(@RequestBody User user) {
+    public ResponseEntity<?> updateUser(@RequestBody UserComand userComand) {
         try {
-            User updatedUser = userService.updateUser(user);
+            User updatedUser = userService.updateUser(userComand);
             return ResponseEntity.ok(updatedUser);
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
