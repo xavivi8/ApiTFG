@@ -1,5 +1,6 @@
 package com.mobabuild.api_build.service.impl;
 
+import com.mobabuild.api_build.controller.comand.UserComand;
 import com.mobabuild.api_build.entities.Authority;
 import com.mobabuild.api_build.entities.User;
 import com.mobabuild.api_build.persistence.IUserDAO;
@@ -43,18 +44,16 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public User updateUser(User newUser) {
-        Optional<User> existingUserOptional = userDAO.findById(newUser.getId());
+    public User updateUser(UserComand userComand) {
+        Optional<User> existingUserOptional = userDAO.findById(userComand.getId());
         List<Authority> authorities = new ArrayList<>();
         if (existingUserOptional.isPresent()) {
             User existingUser = existingUserOptional.get();
-            existingUser.setEmail(newUser.getEmail());
-            existingUser.setUser_name(newUser.getUser_name());
-            existingUser.setPass(newUser.getPass());
-            existingUser.setImage(newUser.getImage());
-            existingUser.setAuthorities(newUser.getAuthorities());
-            existingUser.setBuilds(newUser.getBuilds());
-            existingUser.setFavoriteBuild(newUser.getFavoriteBuild());
+            existingUser.setEmail(userComand.getEmail());
+            existingUser.setUser_name(userComand.getUser_name());
+            existingUser.setPass(userComand.getPass());
+            existingUser.setImage(userComand.getImage());
+            existingUser.setAuthorities(userComand.getAuthorities());
             return userDAO.save(existingUser);
         } else {
             throw new RuntimeException("User not found");
