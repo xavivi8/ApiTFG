@@ -38,7 +38,7 @@ public class SpellController {
                     .description(spell.getDescription())
                     .cooldown(spell.getCooldown())
                     .image(spell.getImage())
-                    .spellSets(spell.getSpellSets())
+                    //.spellSets(spell.getSpellSets())
                     .build();
 
             return  ResponseEntity.ok(spellDTO);
@@ -62,7 +62,7 @@ public class SpellController {
                         .description(spell.getDescription())
                         .cooldown(spell.getCooldown())
                         .image(spell.getImage())
-                        .spellSets(spell.getSpellSets())
+                        //.spellSets(spell.getSpellSets())
                         .build();
                 spellDTOList.add(spellDTO);
             }
