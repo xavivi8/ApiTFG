@@ -22,5 +22,5 @@ public class SpellDTO {
     private String description;
     private String cooldown;
     private byte[] image;
-    private List<SpellSet> spellSets = new ArrayList<>();
+    private List<SpellSetDTO> spellSets = new ArrayList<>();
 }

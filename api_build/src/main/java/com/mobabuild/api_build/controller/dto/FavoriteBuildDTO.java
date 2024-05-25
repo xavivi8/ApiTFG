@@ -16,6 +16,6 @@ import java.util.List;
 public class FavoriteBuildDTO {
 
     private Long id;
-    private User user;
+    private UserDTO user;
     private List<Long> builds = new ArrayList<>();
 }

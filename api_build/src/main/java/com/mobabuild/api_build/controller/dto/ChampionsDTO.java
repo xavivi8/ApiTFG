@@ -17,5 +17,5 @@ public class ChampionsDTO {
 
     private Long id;
     private String name;
-    private List<Build> builds;
+    private List<BuildDTO> builds;
 }
