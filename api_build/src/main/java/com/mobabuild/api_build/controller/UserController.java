@@ -31,6 +31,16 @@ public class UserController {
     @Autowired
     private IAuthorityService authorityService;
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteById(@PathVariable Long id){
+        try {
+            userService.deleteById(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error al eliminar el usuario: " + e.getMessage());
+        }
+    }
+
     @GetMapping("/find/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id){
         Optional<User> userOptional = userService.findById(id);
@@ -65,7 +75,7 @@ public class UserController {
     @PutMapping("/update")
     public ResponseEntity<?> updateUser(@RequestBody UserComand userComand) {
         try {
-            User updatedUser = userService.updateUser(userComand);
+            UserDTO updatedUser = userService.updateUser(userComand);
             return ResponseEntity.ok(updatedUser);
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
