@@ -1,6 +1,7 @@
 package com.mobabuild.api_build.controller;
 
 import com.mobabuild.api_build.controller.comand.UserComand;
+import com.mobabuild.api_build.controller.dto.AuthorityDTO;
 import com.mobabuild.api_build.controller.dto.UserDTO;
 import com.mobabuild.api_build.controller.request.AddUserRequest;
 import com.mobabuild.api_build.entities.Authority;
@@ -40,13 +41,21 @@ public class UserController {
             // Inicializar la colección authorities antes de acceder a ella
             Hibernate.initialize(user.getAuthorities());
 
+            // Convertir la lista de Authority a AuthorityDTO
+            List<AuthorityDTO> authorityDTOs = user.getAuthorities().stream()
+                    .map(authority -> AuthorityDTO.builder()
+                            .id(authority.getId())
+                            .name(authority.getName())
+                            .build())
+                    .collect(Collectors.toList());
+
             UserDTO userDTO = UserDTO.builder()
                     .id(user.getId())
                     .email(user.getEmail())
                     .user_name(user.getUser_name())
                     .pass(user.getPass())
                     .image(user.getImage())
-                    .authorities(user.getAuthorities())
+                    .authorities(authorityDTOs)
                     .build();
             return  ResponseEntity.ok(userDTO);
         }
@@ -108,6 +117,13 @@ public class UserController {
         // Guarda el nuevo usuario en la base de datos
         newUser = userService.save(newUser);
 
+        List<AuthorityDTO> authorityDTOs = newUser.getAuthorities().stream()
+                .map(authority -> AuthorityDTO.builder()
+                        .id(authority.getId())
+                        .name(authority.getName())
+                        .build())
+                .collect(Collectors.toList());
+
         // Convierte el nuevo usuario a DTO para enviarlo como respuesta
         UserDTO userDTO = UserDTO.builder()
                 .id(newUser.getId())
@@ -115,7 +131,7 @@ public class UserController {
                 .user_name(newUser.getUser_name())
                 .pass(newUser.getPass())
                 .image(newUser.getImage())
-                .authorities(newUser.getAuthorities())
+                .authorities(authorityDTOs)
                 .build();
 
         // Devuelve el nuevo usuario creado como respuesta
@@ -131,13 +147,20 @@ public class UserController {
             // Inicializar la colección authorities antes de acceder a ella
             Hibernate.initialize(user.getAuthorities());
 
+            List<AuthorityDTO> authorityDTOs = user.getAuthorities().stream()
+                    .map(authority -> AuthorityDTO.builder()
+                            .id(authority.getId())
+                            .name(authority.getName())
+                            .build())
+                    .collect(Collectors.toList());
+
             return UserDTO.builder()
                     .id(user.getId())
                     .email(user.getEmail())
                     .user_name(user.getUser_name())
                     .pass(user.getPass())
                     .image(user.getImage())
-                    .authorities(user.getAuthorities())
+                    .authorities(authorityDTOs)
                     .build();
         }).collect(Collectors.toList());
 
