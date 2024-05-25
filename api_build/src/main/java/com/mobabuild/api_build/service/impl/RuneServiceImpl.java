@@ -1,6 +1,10 @@
 package com.mobabuild.api_build.service.impl;
 
+import com.mobabuild.api_build.controller.comand.RuneComand;
+import com.mobabuild.api_build.controller.dto.RuneDTO;
+import com.mobabuild.api_build.controller.dto.SpellDTO;
 import com.mobabuild.api_build.entities.Rune;
+import com.mobabuild.api_build.entities.Spell;
 import com.mobabuild.api_build.persistence.IRuneDAO;
 import com.mobabuild.api_build.service.IRuneService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +47,37 @@ public class RuneServiceImpl implements IRuneService {
     @Override
     public int insertRuneWithoutImage(String name, String row, String group_name, String description, String long_description) {
         return runeDAO.insertRuneWithoutImage(name, row, group_name, description, long_description);
+    }
+
+    @Override
+    public RuneDTO update(RuneComand runeComand) {
+        Optional<Rune> runeOptional = runeDAO.findById(runeComand.getId());
+        if(runeOptional.isPresent()){
+            Rune rune = Rune.builder()
+                    .id(runeComand.getId())
+                    .name(runeComand.getName())
+                    .rowType(runeComand.getRowType())
+                    .group_name(runeComand.getGroup_name())
+                    .description(runeComand.getDescription())
+                    .long_description(runeComand.getLong_description())
+                    .image(runeComand.getImage())
+                    .build();
+
+            runeDAO.save(rune);
+
+            RuneDTO runeDTO = RuneDTO.builder()
+                    .id(runeComand.getId())
+                    .name(runeComand.getName())
+                    .rowType(runeComand.getRowType())
+                    .group_name(runeComand.getGroup_name())
+                    .description(runeComand.getDescription())
+                    .long_description(runeComand.getLong_description())
+                    .image(runeComand.getImage())
+                    .build();
+
+            return runeDTO;
+        }else {
+            throw new RuntimeException("Champion not found");
+        }
     }
 }

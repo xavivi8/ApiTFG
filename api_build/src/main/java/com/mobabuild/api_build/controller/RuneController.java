@@ -1,7 +1,9 @@
 package com.mobabuild.api_build.controller;
 
+import com.mobabuild.api_build.controller.comand.RuneComand;
 import com.mobabuild.api_build.controller.dto.ObjectDTO;
 import com.mobabuild.api_build.controller.dto.RuneDTO;
+import com.mobabuild.api_build.controller.dto.SpellDTO;
 import com.mobabuild.api_build.entities.Object;
 import com.mobabuild.api_build.entities.Rune;
 import com.mobabuild.api_build.service.IRuneService;
@@ -65,29 +67,52 @@ public class RuneController {
         return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/deleteById/{id}")
+    @DeleteMapping("/deleteById/{id}")
     public ResponseEntity<?> deleteById(@PathVariable Long id) {
-        runeService.deleteById(id);
-
-        return ResponseEntity.ok("ok");
+        try {
+            runeService.deleteById(id);
+            return ResponseEntity.ok("ok");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error al eliminar el campeon: " + e.getMessage());
+        }
     }
 
-    @PostMapping("/insertRune")
-    @ResponseBody
-    public ResponseEntity<?> insertRune(@RequestBody RuneDTO runeDTO) {
+    @PostMapping("/create")
+    public ResponseEntity<?> insertRune(@RequestBody RuneComand runeComand) {
+        try {
+            Rune rune = Rune.builder()
+                    .name(runeComand.getName())
+                    .rowType(runeComand.getRowType())
+                    .group_name(runeComand.getGroup_name())
+                    .description(runeComand.getDescription())
+                    .long_description(runeComand.getLong_description())
+                    .image(runeComand.getImage())
+                    .build();
 
-        if (runeDTO.getImage() == null || runeDTO.getImage().length == 0) {
-            // El campo de imagen está vacío o nulo
-            // Realiza la inserción sin la imagen
-            int result = runeService.insertRuneWithoutImage(runeDTO.getName(), runeDTO.getRowType(), runeDTO.getGroup_name(), runeDTO.getDescription(), runeDTO.getLong_description());
+            runeService.save(rune);
 
-            return ResponseEntity.ok(result);
+            RuneDTO runeDTO = RuneDTO.builder()
+                    .name(runeComand.getName())
+                    .rowType(runeComand.getRowType())
+                    .group_name(runeComand.getGroup_name())
+                    .description(runeComand.getDescription())
+                    .long_description(runeComand.getLong_description())
+                    .image(runeComand.getImage())
+                    .build();
 
-        } else {
+            return ResponseEntity.ok(runeDTO);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error al eliminar el campeon: " + e.getMessage());
+        }
+    }
 
-            int result = runeService.insertRune(runeDTO.getName(), runeDTO.getRowType(), runeDTO.getGroup_name(), runeDTO.getDescription(), runeDTO.getLong_description(), runeDTO.getImage());
-
-            return ResponseEntity.ok(result);
+    @PutMapping("/update")
+    public ResponseEntity<?> update(@RequestBody RuneComand runeComand){
+        try {
+            RuneDTO runeDTO = runeService.update(runeComand);
+            return ResponseEntity.ok(runeDTO);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
         }
     }
 }
