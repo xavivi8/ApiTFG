@@ -1,6 +1,8 @@
 package com.mobabuild.api_build.service.impl;
 
 import com.mobabuild.api_build.controller.comand.UserComand;
+import com.mobabuild.api_build.controller.dto.AuthorityDTO;
+import com.mobabuild.api_build.controller.dto.UserDTO;
 import com.mobabuild.api_build.entities.Authority;
 import com.mobabuild.api_build.entities.User;
 import com.mobabuild.api_build.persistence.IUserDAO;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements IUserService {
@@ -44,17 +47,35 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public User updateUser(UserComand userComand) {
+    public UserDTO updateUser(UserComand userComand) {
         Optional<User> existingUserOptional = userDAO.findById(userComand.getId());
         List<Authority> authorities = new ArrayList<>();
         if (existingUserOptional.isPresent()) {
-            User existingUser = existingUserOptional.get();
-            existingUser.setEmail(userComand.getEmail());
-            existingUser.setUser_name(userComand.getUser_name());
-            existingUser.setPass(userComand.getPass());
-            existingUser.setImage(userComand.getImage());
-            existingUser.setAuthorities(userComand.getAuthorities());
-            return userDAO.save(existingUser);
+            User userOptionalExist = existingUserOptional.get();
+            userOptionalExist.setEmail(userComand.getEmail());
+            userOptionalExist.setUser_name(userComand.getUser_name());
+            userOptionalExist.setPass(userComand.getPass());
+            userOptionalExist.setImage(userComand.getImage());
+            userOptionalExist.setAuthorities(userComand.getAuthorities());
+
+            List<AuthorityDTO> authorityDTOs = userOptionalExist.getAuthorities().stream()
+                    .map(authority -> AuthorityDTO.builder()
+                            .id(authority.getId())
+                            .name(authority.getName())
+                            .build())
+                    .collect(Collectors.toList());
+
+            UserDTO userDTO = UserDTO.builder()
+                    .id(userOptionalExist.getId())
+                    .email(userOptionalExist.getEmail())
+                    .user_name(userOptionalExist.getUser_name())
+                    .pass(userOptionalExist.getPass())
+                    .image(userOptionalExist.getImage())
+                    .authorities(authorityDTOs)
+                    .build();
+
+            userDAO.save(userOptionalExist);
+            return userDTO;
         } else {
             throw new RuntimeException("User not found");
         }
