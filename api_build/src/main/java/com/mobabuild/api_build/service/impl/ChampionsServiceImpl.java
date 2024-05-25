@@ -1,5 +1,7 @@
 package com.mobabuild.api_build.service.impl;
 
+import com.mobabuild.api_build.controller.comand.ChampionComand;
+import com.mobabuild.api_build.controller.dto.ChampionsDTO;
 import com.mobabuild.api_build.entities.Build;
 import com.mobabuild.api_build.entities.Champions;
 import com.mobabuild.api_build.persistence.IBuildDAO;
@@ -40,5 +42,28 @@ public class ChampionsServiceImpl implements IChampionsService {
     @Override
     public int setChampion(String name) {
         return championsDAO.setChampion(name);
+    }
+
+    @Override
+    public ChampionsDTO updateChampion(ChampionComand championComand) {
+        Optional<Champions> championsOptional = championsDAO.findById(championComand.getId());
+        if(championsOptional.isPresent()){
+            Champions championsExist = Champions.builder()
+                    .id(championsOptional.get().getId())
+                    .name(championsOptional.get().getName())
+                    .builds(championsOptional.get().getBuilds())
+                    .build();
+
+            ChampionsDTO championsDTO =ChampionsDTO.builder()
+                    .id(championsExist.getId())
+                    .name(championsExist.getName())
+                    .builds(championsExist.getBuilds())
+                    .build();
+
+            championsDAO.save(championsExist);
+            return championsDTO;
+        } else {
+            throw new RuntimeException("Champion not found");
+        }
     }
 }
