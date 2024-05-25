@@ -29,7 +29,7 @@ public class Build {
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "champions_id")
+    @JoinColumn(name = "champions_id", referencedColumnName = "id")
     @JsonIgnore
     private Champions champions;
 
