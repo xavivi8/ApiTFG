@@ -1,16 +1,15 @@
 package com.mobabuild.api_build.controller;
 
+import com.mobabuild.api_build.controller.comand.ChampionComand;
 import com.mobabuild.api_build.controller.dto.ChampionsDTO;
 import com.mobabuild.api_build.controller.dto.ObjectDTO;
+import com.mobabuild.api_build.controller.dto.UserDTO;
 import com.mobabuild.api_build.entities.Champions;
 import com.mobabuild.api_build.entities.Object;
 import com.mobabuild.api_build.service.IChampionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,11 +61,14 @@ public class ChampionsController {
         return  ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/deleteById/{id}")
+    @DeleteMapping("/deleteById/{id}")
     public ResponseEntity<?> deleteById(@PathVariable Long id){
-        championsService.deleteById(id);
-
-        return ResponseEntity.ok("ok");
+        try {
+            championsService.deleteById(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error al eliminar el campeon: " + e.getMessage());
+        }
     }
 
     @GetMapping("/setChampion/{name}")
@@ -81,4 +83,13 @@ public class ChampionsController {
         return  ResponseEntity.notFound().build();
     }
 
+    @PutMapping("/update")
+    public ResponseEntity<?> updateChampion(@RequestBody ChampionComand championComand){
+        try {
+            ChampionsDTO championsDTO = championsService.updateChampion(championComand);
+            return ResponseEntity.ok(championsDTO);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
