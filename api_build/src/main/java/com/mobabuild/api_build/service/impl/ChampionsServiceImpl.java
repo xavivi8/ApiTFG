@@ -1,9 +1,10 @@
 package com.mobabuild.api_build.service.impl;
 
 import com.mobabuild.api_build.controller.comand.ChampionComand;
-import com.mobabuild.api_build.controller.dto.ChampionsDTO;
+import com.mobabuild.api_build.controller.dto.*;
 import com.mobabuild.api_build.entities.Build;
 import com.mobabuild.api_build.entities.Champions;
+import com.mobabuild.api_build.entities.User;
 import com.mobabuild.api_build.persistence.IBuildDAO;
 import com.mobabuild.api_build.persistence.IChampionsDAO;
 import com.mobabuild.api_build.service.IChampionsService;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ChampionsServiceImpl implements IChampionsService {
@@ -47,17 +49,25 @@ public class ChampionsServiceImpl implements IChampionsService {
     @Override
     public ChampionsDTO updateChampion(ChampionComand championComand) {
         Optional<Champions> championsOptional = championsDAO.findById(championComand.getId());
-        if(championsOptional.isPresent()){
-            Champions championsExist = Champions.builder()
-                    .id(championsOptional.get().getId())
-                    .name(championsOptional.get().getName())
-                    .builds(championsOptional.get().getBuilds())
-                    .build();
+        if (championsOptional.isPresent()) {
+            Champions championsExist = championsOptional.get();
+            championsExist.setName(championComand.getName());
 
-            ChampionsDTO championsDTO =ChampionsDTO.builder()
+            // Verificar si la lista de builds es nula
+            List<Build> newBuilds = championComand.getBuilds();
+            if (newBuilds != null) {
+                // Actualizar la colección de builds
+                championsExist.getBuilds().clear();
+                for (Build build : newBuilds) {
+                    build.setChampions(championsExist);
+                    championsExist.getBuilds().add(build);
+                }
+            }
+
+            ChampionsDTO championsDTO = ChampionsDTO.builder()
                     .id(championsExist.getId())
                     .name(championsExist.getName())
-                    .builds(championsExist.getBuilds())
+                    .builds(null) // Asumiendo que no necesitas devolver la lista de builds en el DTO
                     .build();
 
             championsDAO.save(championsExist);
@@ -66,4 +76,6 @@ public class ChampionsServiceImpl implements IChampionsService {
             throw new RuntimeException("Champion not found");
         }
     }
+
+
 }
