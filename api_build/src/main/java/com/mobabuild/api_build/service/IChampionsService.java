@@ -1,5 +1,7 @@
 package com.mobabuild.api_build.service;
 
+import com.mobabuild.api_build.controller.comand.ChampionComand;
+import com.mobabuild.api_build.controller.dto.ChampionsDTO;
 import com.mobabuild.api_build.entities.Champions;
 
 import java.util.List;
@@ -16,4 +18,6 @@ public interface IChampionsService {
     void deleteById(Long id);
 
     int setChampion(String name);
+
+    ChampionsDTO updateChampion(ChampionComand championComand);
 }
