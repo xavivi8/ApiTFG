@@ -1,5 +1,7 @@
 package com.mobabuild.api_build.controller;
 
+import com.mobabuild.api_build.controller.comand.SpellComand;
+import com.mobabuild.api_build.controller.dto.ChampionsDTO;
 import com.mobabuild.api_build.controller.dto.ObjectDTO;
 import com.mobabuild.api_build.controller.dto.SpellDTO;
 import com.mobabuild.api_build.entities.Object;
@@ -7,10 +9,7 @@ import com.mobabuild.api_build.entities.Spell;
 import com.mobabuild.api_build.service.ISpellService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,10 +71,53 @@ public class SpellController {
         return  ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/deleteById/{id}")
+    @DeleteMapping("/deleteById/{id}")
     public ResponseEntity<?> deleteById(@PathVariable Long id){
-        spellService.deleteById(id);
-
-        return ResponseEntity.ok("ok");
+        try {
+            spellService.deleteById(id);
+            return ResponseEntity.ok("ok");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error al eliminar el campeon: " + e.getMessage());
+        }
     }
+
+    @PostMapping("/create")
+    public ResponseEntity<?> create(@RequestBody SpellComand spellComand){
+        try {
+            Spell newSpell = Spell.builder()
+                    .name(spellComand.getName())
+                    .champion_level(spellComand.getChampion_level())
+                    .game_mode(spellComand.getGame_mode())
+                    .description(spellComand.getDescription())
+                    .cooldown(spellComand.getCooldown())
+                    .image(spellComand.getImage())
+                    .build();
+
+            spellService.save(newSpell);
+
+            SpellDTO spellDTO = SpellDTO.builder()
+                    .name(spellComand.getName())
+                    .champion_level(spellComand.getChampion_level())
+                    .game_mode(spellComand.getGame_mode())
+                    .description(spellComand.getDescription())
+                    .cooldown(spellComand.getCooldown())
+                    .image(spellComand.getImage())
+                    .build();
+
+            return ResponseEntity.ok(spellDTO);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error al eliminar el campeon: " + e.getMessage());
+        }
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<?> update(@RequestBody SpellComand spellComand){
+        try {
+            SpellDTO spellDTO = spellService.update(spellComand);
+            return ResponseEntity.ok(spellDTO);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }

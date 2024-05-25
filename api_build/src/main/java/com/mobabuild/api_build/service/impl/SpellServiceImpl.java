@@ -1,5 +1,7 @@
 package com.mobabuild.api_build.service.impl;
 
+import com.mobabuild.api_build.controller.comand.SpellComand;
+import com.mobabuild.api_build.controller.dto.SpellDTO;
 import com.mobabuild.api_build.entities.Spell;
 import com.mobabuild.api_build.persistence.ISpellDAO;
 import com.mobabuild.api_build.service.ISpellService;
@@ -33,5 +35,37 @@ public class SpellServiceImpl implements ISpellService {
     @Override
     public void deleteById(Long id) {
         spellDAO.deleteById(id);
+    }
+
+    @Override
+    public SpellDTO update(SpellComand spellComand) {
+        Optional<Spell> spellOptional = spellDAO.findById(spellComand.getId());
+        if(spellOptional.isPresent()){
+            Spell spell = Spell.builder()
+                    .id(spellComand.getId())
+                    .name(spellComand.getName())
+                    .champion_level(spellComand.getChampion_level())
+                    .game_mode(spellComand.getGame_mode())
+                    .description(spellComand.getDescription())
+                    .cooldown(spellComand.getCooldown())
+                    .image(spellComand.getImage())
+                    .build();
+
+            spellDAO.save(spell);
+
+            SpellDTO spellDTO = SpellDTO.builder()
+                    .id(spellComand.getId())
+                    .name(spellComand.getName())
+                    .champion_level(spellComand.getChampion_level())
+                    .game_mode(spellComand.getGame_mode())
+                    .description(spellComand.getDescription())
+                    .cooldown(spellComand.getCooldown())
+                    .image(spellComand.getImage())
+                    .build();
+
+            return spellDTO;
+        }else {
+            throw new RuntimeException("Champion not found");
+        }
     }
 }
