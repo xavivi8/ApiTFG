@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c1c4298-fff0-4c64-9625-9fa5c8d7fce2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/comand/RuneComand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/comand/SpellComand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/RuneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/RuneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/SpellController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/SpellController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/RuneDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/RuneDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/SpellDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/SpellDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IRuneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IRuneService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/ISpellService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/ISpellService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/RuneServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/RuneServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/SpellServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/SpellServiceImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="9c1c4298-fff0-4c64-9625-9fa5c8d7fce2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
