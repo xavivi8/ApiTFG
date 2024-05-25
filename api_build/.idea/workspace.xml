@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c1c4298-fff0-4c64-9625-9fa5c8d7fce2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/AuthorityDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,47 +103,18 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/UserController.java</url>
-          <line>82</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/UserController.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/UserController.java</url>
-          <line>67</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/UserServiceImpl.java</url>
-          <line>47</line>
+          <line>50</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/UserController.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/UserController.java</url>
-          <line>76</line>
-          <properties class="com.mobabuild.api_build.controller.UserController" method="addUserWithoutImage">
+          <line>152</line>
+          <properties class="com.mobabuild.api_build.controller.UserController" method="findAll">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/UserController.java</url>
-          <line>65</line>
-          <properties class="com.mobabuild.api_build.controller.UserController" method="updateUser">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="15" />
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
