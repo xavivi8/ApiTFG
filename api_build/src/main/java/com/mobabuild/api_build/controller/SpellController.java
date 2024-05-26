@@ -75,7 +75,7 @@ public class SpellController {
     public ResponseEntity<?> deleteById(@PathVariable Long id){
         try {
             spellService.deleteById(id);
-            return ResponseEntity.ok("ok");
+            return ResponseEntity.ok().build();
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Error al eliminar el campeon: " + e.getMessage());
         }
