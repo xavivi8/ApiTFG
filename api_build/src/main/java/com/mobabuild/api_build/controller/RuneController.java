@@ -54,6 +54,7 @@ public class RuneController {
                 RuneDTO runeDTO = RuneDTO.builder()
                         .id(rune.getId())
                         .name(rune.getName())
+                        .rowType(rune.getRowType())
                         .group_name(rune.getGroup_name())
                         .description(rune.getDescription())
                         .long_description(rune.getLong_description())
@@ -71,7 +72,7 @@ public class RuneController {
     public ResponseEntity<?> deleteById(@PathVariable Long id) {
         try {
             runeService.deleteById(id);
-            return ResponseEntity.ok("ok");
+            return ResponseEntity.ok().build();
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Error al eliminar el campeon: " + e.getMessage());
         }
