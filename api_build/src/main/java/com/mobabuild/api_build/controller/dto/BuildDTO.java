@@ -1,5 +1,6 @@
 package com.mobabuild.api_build.controller.dto;
 
+import com.mobabuild.api_build.entities.Champions;
 import com.mobabuild.api_build.entities.RuneSet;
 import lombok.*;
 
@@ -17,7 +18,7 @@ public class BuildDTO {
     private Long id;
     private String buildName;
     private UserDTO user;
-    //private Champions champions;
+    private Champions champions;
     private List<SpellSetDTO> spellSets = new ArrayList<>();
     private List<ObjectSetDTO> objectSet = new ArrayList<>();
     private List<RuneSet> runeSet = new ArrayList<>();
