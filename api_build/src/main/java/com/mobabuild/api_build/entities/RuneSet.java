@@ -35,6 +35,6 @@ public class RuneSet {
     private String additional_advantages;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "build", nullable = false)
+    @JoinColumn(name = "build")
     private Build build;
 }

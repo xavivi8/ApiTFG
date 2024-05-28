@@ -24,7 +24,7 @@ public class SpellSet {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "build", nullable = false)
+    @JoinColumn(name = "build")
     @JsonIgnore
     private Build build;
 
