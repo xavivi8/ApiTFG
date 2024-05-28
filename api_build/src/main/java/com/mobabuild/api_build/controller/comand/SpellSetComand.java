@@ -19,5 +19,5 @@ public class SpellSetComand {
     private Long id;
     private String name;
     private BuildComand build;
-    private List<Spell> spells = new ArrayList<>();
+    private List<SpellComand> spells = new ArrayList<>();
 }
