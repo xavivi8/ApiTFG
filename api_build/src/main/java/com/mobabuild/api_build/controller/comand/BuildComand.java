@@ -15,7 +15,7 @@ import java.util.List;
 public class BuildComand {
     private Long id;
     private String buildName;
-    private User user;
+    private UserComand user;
     private Champions champions;
     private List<SpellSetComand> spellSets = new ArrayList<>();
     private List<ObjectSetComand> objectSet = new ArrayList<>();
