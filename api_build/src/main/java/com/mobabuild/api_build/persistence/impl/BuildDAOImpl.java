@@ -34,4 +34,9 @@ public class BuildDAOImpl implements IBuildDAO {
     public void deleteById(Long id) {
         buildRepository.deleteById(id);
     }
+
+    @Override
+    public List<Build> findByChampionsId(Long championsId) {
+        return buildRepository.findByChampionsId(championsId);
+    }
 }
