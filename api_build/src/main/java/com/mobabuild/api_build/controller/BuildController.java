@@ -1,20 +1,16 @@
 package com.mobabuild.api_build.controller;
 
-import com.mobabuild.api_build.controller.comand.BuildComand;
-import com.mobabuild.api_build.controller.comand.ObjectComand;
-import com.mobabuild.api_build.controller.comand.SpellComand;
+import com.mobabuild.api_build.controller.comand.*;
 import com.mobabuild.api_build.controller.dto.*;
 import com.mobabuild.api_build.entities.*;
 import com.mobabuild.api_build.entities.Object;
 import com.mobabuild.api_build.service.IBuildService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,47 +21,63 @@ public class BuildController {
     @Autowired
     private IBuildService buildService;
 
+    @GetMapping("/findAll")
+    public ResponseEntity<List<BuildDTO>> findAll(){
+        try {
+            List<Build> buildList = buildService.findAll();
+
+            List<BuildDTO> buildDTOList = buildList.stream()
+                    .map(this::createBuildDTO)
+                    .collect(Collectors.toList());
+
+            return ResponseEntity.ok(buildDTOList);
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+
+    }
+
+    @PostMapping("/findByChampion")
+    public ResponseEntity<List<BuildDTO>> findByChampion(@RequestBody ChampionComand championComand) {
+        try {
+            List<BuildDTO> builds = buildService.findByChampionsId(championComand);
+            return ResponseEntity.ok(builds);
+        } catch (Exception e) {
+            // Manejo de la excepción
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody BuildComand buildComand){
         try {
-            Build newBuild = convertToBuild(buildComand);
 
-            buildService.save(newBuild);
-
-            UserDTO userDTO = convertToUserDTO(buildComand.getUser());
-
-            BuildDTO buildDTO = BuildDTO.builder()
-                    .buildName(buildComand.getBuildName())
-                    .user(userDTO)
-                    .champions(buildComand.getChampions())
-                    .spellSets(buildComand.getSpellSets().stream() // Conversión directa de SpellSet a SpellSetDTO
-                            .map(spellSet -> SpellSetDTO.builder()
-                                    .id(spellSet.getId())
-                                    .name(spellSet.getName())
-                                    .build())
-                            .collect(Collectors.toList()))
-                    .objectSet(buildComand.getObjectSet().stream() // Conversión directa de ObjectSet a ObjectSetDTO
-                            .map(objectSet -> ObjectSetDTO.builder()
-                                .id(objectSet.getId())
-                                .name(objectSet.getName())
-                                // Agrega más campos según sea necesario
-                                .build())
-                    .collect(Collectors.toList()))
-                    .runeSet(buildComand.getRuneSet().stream()
-                            .map(runeSet -> RuneSetDTO.builder()
-                                    .id(runeSet.getId())
-                                    .name(runeSet.getName())
-                                    .build())
-                            .collect(Collectors.toList()))
-                    .build();
+            BuildDTO buildDTO = buildService.save(buildComand);
 
             return ResponseEntity.ok(buildDTO);
+        } catch (DataIntegrityViolationException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error de integridad de datos: " + e.getMessage());
         } catch (Exception e) {
-            return ResponseEntity.status(500).body("Error al añadir la build: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al añadir la build: " + e.getMessage());
+        }
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<BuildDTO> updateUser(@RequestBody BuildComand buildComand) {
+        try {
+
+            BuildDTO updatedUser = buildService.save(buildComand);
+
+            return ResponseEntity.ok(updatedUser);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
         }
     }
 
     private Build convertToBuild(BuildComand buildComand){
+
+        User user = convertToUser(buildComand.getUser());
+
         List<SpellSet> spellSets = buildComand.getSpellSets().stream()
                 .map(spellSet -> SpellSet.builder()
                         .id(spellSet.getId())
@@ -100,11 +112,21 @@ public class BuildController {
 
         return Build.builder()
                 .buildName(buildComand.getBuildName())
-                .user(buildComand.getUser())
+                .user(user)
                 .champions(buildComand.getChampions())
                 .spellSets(spellSets)
                 .objectSet(objectSets)
                 .runeSet(runeSets)
+                .build();
+    }
+
+    private User convertToUser(UserComand userComand){
+        return  User.builder()
+                .id(userComand.getId())
+                .email(userComand.getEmail())
+                .user_name(userComand.getUser_name())
+                .pass(userComand.getPass())
+                .image(userComand.getImage())
                 .build();
     }
 
@@ -127,20 +149,170 @@ public class BuildController {
                 .build();
     }
 
-    private UserDTO convertToUserDTO(User user) {
-        UserDTO userDTO = UserDTO.builder()
+    private BuildDTO convertToBuildDTO(BuildComand buildComand){
+
+        UserDTO userDTO = convertToUserDTO(buildComand.getUser());
+
+        List<SpellSetDTO> spellSetsDTO = buildComand.getSpellSets().stream()
+                .map(spellSet -> SpellSetDTO.builder()
+                        .id(spellSet.getId())
+                        .name(spellSet.getName())
+                        .spells(spellSet.getSpells().stream()
+                                .map(this::convertToSpellDTO)
+                                .collect(Collectors.toList()))
+                        .build())
+                .collect(Collectors.toList());
+
+        List<ObjectSetDTO> objectSetsDTO = buildComand.getObjectSet().stream()
+                .map(objectSet -> ObjectSetDTO.builder()
+                        .id(objectSet.getId())
+                        .name(objectSet.getName())
+                        .objects(objectSet.getObjects().stream()
+                                .map(this::convertToObjectDTO)
+                                .collect(Collectors.toList()))
+                        .build())
+                .collect(Collectors.toList());
+
+        List<RuneSetDTO> runeSetsDTO = buildComand.getRuneSet().stream()
+                .map(runeSet -> RuneSetDTO.builder()
+                        .id(runeSet.getId())
+                        .name(runeSet.getName())
+                        .main_rune(runeSet.getMain_rune())
+                        .main_sub_rune(runeSet.getMain_sub_rune())
+                        .secondary_rune(runeSet.getSecondary_rune())
+                        .secondary_sub_rune(runeSet.getSecondary_sub_rune())
+                        .additional_advantages(runeSet.getAdditional_advantages())
+                        .build())
+                .collect(Collectors.toList());
+
+        return BuildDTO.builder()
+                .buildName(buildComand.getBuildName())
+                .user(userDTO)
+                .champions(buildComand.getChampions())
+                .spellSets(spellSetsDTO)
+                .objectSet(objectSetsDTO)
+                .runeSet(runeSetsDTO)
+                .build();
+    }
+
+    private UserDTO convertToUserDTO(UserComand userComand){
+        return  UserDTO.builder()
+                .id(userComand.getId())
+                .email(userComand.getEmail())
+                .user_name(userComand.getUser_name())
+                .pass(userComand.getPass())
+                .image(userComand.getImage())
+                .build();
+    }
+
+    private SpellDTO convertToSpellDTO(SpellComand spellComand) {
+        return SpellDTO.builder()
+                .id(spellComand.getId())
+                .name(spellComand.getName())
+                .champion_level(spellComand.getChampion_level())
+                .game_mode(spellComand.getGame_mode())
+                .description(spellComand.getDescription())
+                .cooldown(spellComand.getCooldown())
+                .image(spellComand.getImage())
+                .build();
+    }
+
+    private ObjectDTO convertToObjectDTO(ObjectComand objectComand) {
+        return ObjectDTO.builder()
+                .id(objectComand.getId())
+                .name(objectComand.getName())
+                .build();
+    }
+
+    private BuildDTO createBuildDTO(Build build){
+
+        UserDTO userDTO = createUserDTO(build.getUser());
+
+        List<SpellSetDTO> spellSetsDTO = build.getSpellSets().stream()
+                .map(spellSet -> SpellSetDTO.builder()
+                        .id(spellSet.getId())
+                        .name(spellSet.getName())
+                        //.build(createBuildDTO(spellSet.getBuild()))
+                        .spells(spellSet.getSpells().stream()
+                                .map(this::createSpellDTO)
+                                .collect(Collectors.toList()))
+                        .build())
+                .collect(Collectors.toList());
+
+        List<ObjectSetDTO> objectSetsDTO = build.getObjectSet().stream()
+                .map(objectSet -> ObjectSetDTO.builder()
+                        .id(objectSet.getId())
+                        .name(objectSet.getName())
+                        //.build(createBuildDTO(objectSet.getBuild()))
+                        .objects(objectSet.getObjects().stream()
+                                .map(this::createObjectDTO)
+                                .collect(Collectors.toList()))
+                        .build())
+                .collect(Collectors.toList());
+
+        List<RuneSetDTO> runeSetsDTO = build.getRuneSet().stream()
+                .map(runeSet -> RuneSetDTO.builder()
+                        .id(runeSet.getId())
+                        .name(runeSet.getName())
+                        .main_rune(runeSet.getMain_rune())
+                        .main_sub_rune(runeSet.getMain_sub_rune())
+                        .secondary_rune(runeSet.getSecondary_rune())
+                        .secondary_sub_rune(runeSet.getSecondary_sub_rune())
+                        .additional_advantages(runeSet.getAdditional_advantages())
+                        //.build(createBuildDTO(runeSet.getBuild()))
+                        .build())
+                .collect(Collectors.toList());
+
+        return BuildDTO.builder()
+                .id(build.getId())
+                .buildName(build.getBuildName())
+                .user(userDTO)
+                .champions(build.getChampions())
+                .spellSets(spellSetsDTO)
+                .objectSet(objectSetsDTO)
+                .runeSet(runeSetsDTO)
+                .build();
+    }
+
+    private UserDTO createUserDTO(User user){
+
+        return  UserDTO.builder()
                 .id(user.getId())
                 .email(user.getEmail())
                 .user_name(user.getUser_name())
                 .pass(user.getPass())
                 .image(user.getImage())
-                //.builds(user.getBuilds())
                 .build();
-
-        // Si deseas incluir la conversión de otras entidades dentro de User, hazlo aquí
-
-        return userDTO;
     }
 
+    private FavoriteBuildDTO createFavoriteBuildDTO(FavoriteBuild favoriteBuild){
 
+        UserDTO userDTO = createUserDTO(favoriteBuild.getUser());
+
+
+        return FavoriteBuildDTO.builder()
+                .id(favoriteBuild.getId())
+                .user(userDTO)
+                .builds(favoriteBuild.getBuilds())
+                .build();
+    }
+
+    private SpellDTO createSpellDTO(Spell spell) {
+        return SpellDTO.builder()
+                .id(spell.getId())
+                .name(spell.getName())
+                .champion_level(spell.getChampion_level())
+                .game_mode(spell.getGame_mode())
+                .description(spell.getDescription())
+                .cooldown(spell.getCooldown())
+                .image(spell.getImage())
+                .build();
+    }
+
+    private ObjectDTO createObjectDTO(Object object) {
+        return ObjectDTO.builder()
+                .id(object.getId())
+                .name(object.getName())
+                .build();
+    }
 }
