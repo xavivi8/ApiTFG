@@ -198,14 +198,26 @@ public class BuildServiceImpl implements IBuildService {
                         .build())
                 .collect(Collectors.toList());
 
-        return Build.builder()
-                .buildName(buildComand.getBuildName())
-                .user(user)
-                .champions(buildComand.getChampions())
-                .spellSets(spellSets)
-                .objectSet(objectSets)
-                .runeSet(runeSets)
-                .build();
+        if(buildComand.getId() != null){
+            return Build.builder()
+                    .id(buildComand.getId())
+                    .buildName(buildComand.getBuildName())
+                    .user(user)
+                    .champions(buildComand.getChampions())
+                    .spellSets(spellSets)
+                    .objectSet(objectSets)
+                    .runeSet(runeSets)
+                    .build();
+        } else{
+            return Build.builder()
+                    .buildName(buildComand.getBuildName())
+                    .user(user)
+                    .champions(buildComand.getChampions())
+                    .spellSets(spellSets)
+                    .objectSet(objectSets)
+                    .runeSet(runeSets)
+                    .build();
+        }
     }
 
     private User convertToUser(UserComand userComand){
