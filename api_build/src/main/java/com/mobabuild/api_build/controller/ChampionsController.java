@@ -51,7 +51,7 @@ public class ChampionsController {
                                             // Agrega más campos según sea necesario
                                             .build())
                                     .collect(Collectors.toList()))
-                            .runeSet(build.getRuneSet())
+                            .runeSet(null)
                             .build())
                     .collect(Collectors.toList());
 
@@ -97,7 +97,7 @@ public class ChampionsController {
                                                 // Agrega más campos según sea necesario
                                                 .build())
                                         .collect(Collectors.toList()))
-                                .runeSet(build.getRuneSet())
+                                .runeSet(null)
                                 .build())
                         .collect(Collectors.toList());
 
