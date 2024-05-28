@@ -21,5 +21,5 @@ public class BuildDTO {
     private Champions champions;
     private List<SpellSetDTO> spellSets = new ArrayList<>();
     private List<ObjectSetDTO> objectSet = new ArrayList<>();
-    private List<RuneSet> runeSet = new ArrayList<>();
+    private List<RuneSetDTO> runeSet = new ArrayList<>();
 }
