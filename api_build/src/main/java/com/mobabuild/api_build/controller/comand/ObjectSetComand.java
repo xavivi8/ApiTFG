@@ -18,6 +18,6 @@ import java.util.List;
 public class ObjectSetComand {
     private Long id;
     private String name;
-    private BuildComand build;
-    private List<Object> objects = new ArrayList<>();
+    private BuildComand builds;
+    private List<ObjectComand> objects = new ArrayList<>();
 }

@@ -20,5 +20,5 @@ public class SpellComand {
     private String description;
     private String cooldown;
     private byte[] image;
-    private List<SpellSetDTO> spellSets = new ArrayList<>();
+    private List<SpellSetComand> spellSets = new ArrayList<>();
 }

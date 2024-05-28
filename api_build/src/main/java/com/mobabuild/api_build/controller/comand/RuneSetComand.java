@@ -17,5 +17,5 @@ public class RuneSetComand {
     private String secondary_rune;
     private String secondary_sub_rune;
     private String additional_advantages;
-    private Build build;
+    private BuildComand build;
 }

@@ -17,7 +17,7 @@ public class BuildComand {
     private String buildName;
     private User user;
     private Champions champions;
-    private List<SpellSet> spellSets = new ArrayList<>();
-    private List<ObjectSet> objectSet = new ArrayList<>();
-    private List<RuneSet> runeSet = new ArrayList<>();
+    private List<SpellSetComand> spellSets = new ArrayList<>();
+    private List<ObjectSetComand> objectSet = new ArrayList<>();
+    private List<RuneSetComand> runeSet = new ArrayList<>();
 }
