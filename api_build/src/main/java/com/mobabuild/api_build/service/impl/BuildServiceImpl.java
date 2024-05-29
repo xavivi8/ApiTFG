@@ -25,9 +25,18 @@ public class BuildServiceImpl implements IBuildService {
     }
 
     @Override
-    public Optional<Build> findById(Long id) {
-        return buildDAO.findById(id);
+    public BuildDTO findById(Long id) {
+        Optional<Build> buildOptional = buildDAO.findById(id);
+
+        if (buildOptional.isPresent()) {
+            BuildDTO buildDTO = createBuildDTO(buildOptional.get());
+            return buildDTO;
+        } else {
+            return null;
+        }
     }
+
+
 
     @Override
     public BuildDTO save(BuildComand buildComand) {

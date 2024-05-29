@@ -13,7 +13,7 @@ public interface IBuildService {
 
     List<Build> findAll();
 
-    Optional<Build> findById(Long id);
+    BuildDTO findById(Long id);
 
     BuildDTO save(BuildComand buildComand);
 
