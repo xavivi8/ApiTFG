@@ -34,8 +34,18 @@ public class BuildController {
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
         }
-
     }
+
+     @GetMapping("/findById/{id}")
+     public ResponseEntity<BuildDTO> findById(@PathVariable Long id){
+         try {
+             BuildDTO buildDTO = buildService.findById(id);
+
+             return ResponseEntity.ok(buildDTO);
+         } catch (Exception e) {
+             return ResponseEntity.notFound().build();
+         }
+     }
 
     @PostMapping("/findByChampion")
     public ResponseEntity<List<BuildDTO>> findByChampion(@RequestBody ChampionComand championComand) {
@@ -63,7 +73,7 @@ public class BuildController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<BuildDTO> updateUser(@RequestBody BuildComand buildComand) {
+    public ResponseEntity<BuildDTO> update(@RequestBody BuildComand buildComand) {
         try {
 
             BuildDTO updatedUser = buildService.save(buildComand);
