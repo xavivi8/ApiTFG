@@ -22,6 +22,9 @@ public class Champions {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "image")
+    private byte[] image;
+
     @OneToMany(mappedBy = "champions", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JsonIgnore
     private List<Build> builds;

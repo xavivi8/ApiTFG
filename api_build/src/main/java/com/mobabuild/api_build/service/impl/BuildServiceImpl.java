@@ -168,6 +168,7 @@ public class BuildServiceImpl implements IBuildService {
         return ObjectDTO.builder()
                 .id(object.getId())
                 .name(object.getName())
+                .image(object.getImage())
                 .build();
     }
 
@@ -255,6 +256,7 @@ public class BuildServiceImpl implements IBuildService {
         return Object.builder()
                 .id(objectComand.getId())
                 .name(objectComand.getName())
+                .image(objectComand.getImage())
                 .build();
     }
 }

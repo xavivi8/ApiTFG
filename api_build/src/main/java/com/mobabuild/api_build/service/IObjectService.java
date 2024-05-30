@@ -1,5 +1,7 @@
 package com.mobabuild.api_build.service;
 
+import com.mobabuild.api_build.controller.comand.ObjectComand;
+import com.mobabuild.api_build.controller.dto.ObjectDTO;
 import com.mobabuild.api_build.entities.Object;
 
 import java.util.List;
@@ -11,7 +13,7 @@ public interface IObjectService {
 
     Optional<Object> findById(Long id);
 
-    void save(Object object);
+    ObjectDTO save(ObjectComand objectComand);
 
     void deleteById(Long id);
 

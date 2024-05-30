@@ -23,6 +23,9 @@ public class Object {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "image")
+    private byte[] image;
+
     @ManyToMany(mappedBy = "objects", cascade = CascadeType.ALL, fetch =  FetchType.LAZY)
     @JsonIgnore
     private List<ObjectSet> objectSets = new ArrayList<>();

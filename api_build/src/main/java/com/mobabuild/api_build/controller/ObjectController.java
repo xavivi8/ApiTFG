@@ -1,9 +1,13 @@
 package com.mobabuild.api_build.controller;
 
+import com.mobabuild.api_build.controller.comand.ObjectComand;
+import com.mobabuild.api_build.controller.dto.BuildDTO;
 import com.mobabuild.api_build.controller.dto.ObjectDTO;
 import com.mobabuild.api_build.entities.Object;
 import com.mobabuild.api_build.service.IObjectService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -70,25 +74,29 @@ public class ObjectController {
 
 
 
-    @GetMapping("/setObject/{name}")
-    public ResponseEntity<?> setObject(@PathVariable String name){
-        int response = objectService.setObject(name);
+    @PostMapping("/create")
+    public ResponseEntity<?> setObject(@RequestBody ObjectComand objectComand){
+        try {
 
-        if(response == 1){
+            ObjectDTO objectDTO = objectService.save(objectComand);
 
-            return ResponseEntity.ok(1);
+            return ResponseEntity.ok(objectDTO);
+        } catch (DataIntegrityViolationException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error de integridad de datos: " + e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al añadir el objeto: " + e.getMessage());
         }
-
-        return  ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/updateObjectById/{id}/{name}")
-    public ResponseEntity<String> updateObjectName(@PathVariable Long id, @PathVariable String name) {
-        boolean isUpdated = objectService.updateObjectName(id, name);
-        if (isUpdated) {
-            return ResponseEntity.ok("1");
-        } else {
-            return ResponseEntity.status(404).body("0");
+    @PutMapping("/update")
+    public ResponseEntity<?> updateObjectName(@RequestBody ObjectComand objectComand) {
+        try {
+
+            ObjectDTO objectDTO = objectService.save(objectComand);
+
+            return ResponseEntity.ok(objectDTO);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
         }
     }
 

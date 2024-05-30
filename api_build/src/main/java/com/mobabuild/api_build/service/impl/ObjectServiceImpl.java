@@ -1,5 +1,7 @@
 package com.mobabuild.api_build.service.impl;
 
+import com.mobabuild.api_build.controller.comand.ObjectComand;
+import com.mobabuild.api_build.controller.dto.ObjectDTO;
 import com.mobabuild.api_build.entities.Object;
 import com.mobabuild.api_build.persistence.IObjectDAO;
 import com.mobabuild.api_build.service.IObjectService;
@@ -26,8 +28,12 @@ public class ObjectServiceImpl implements IObjectService {
     }
 
     @Override
-    public void save(Object object) {
+    public ObjectDTO save(ObjectComand objectComand) {
+        Object object = convertToObject(objectComand);
+
         objectDAO.save(object);
+
+        return createObjectDTO(object);
     }
 
     @Override
@@ -43,5 +49,21 @@ public class ObjectServiceImpl implements IObjectService {
     @Override
     public boolean updateObjectName(Long id, String name) {
         return objectDAO.updateObjectName(id, name);
+    }
+
+    private Object convertToObject(ObjectComand objectComand){
+        return Object.builder()
+                .id(objectComand.getId())
+                .name(objectComand.getName())
+                .image(objectComand.getImage())
+                .build();
+    }
+
+    private ObjectDTO createObjectDTO(Object object){
+        return ObjectDTO.builder()
+                .id(object.getId())
+                .name(object.getName())
+                .image(object.getImage())
+                .build();
     }
 }
