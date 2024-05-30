@@ -83,6 +83,12 @@ public class BuildServiceImpl implements IBuildService {
 
         UserDTO userDTO = createUserDTO(build.getUser());
 
+        ChampionsDTO championsDTO = ChampionsDTO.builder()
+                .id(build.getChampions().getId())
+                .name(build.getChampions().getName())
+                .image(build.getChampions().getImage())
+                .build();
+
         List<SpellSetDTO> spellSetsDTO = build.getSpellSets().stream()
                 .map(spellSet -> SpellSetDTO.builder()
                         .id(spellSet.getId())
@@ -122,7 +128,7 @@ public class BuildServiceImpl implements IBuildService {
                 .id(build.getId())
                 .buildName(build.getBuildName())
                 .user(userDTO)
-                .champions(build.getChampions())
+                .champions(championsDTO)
                 .spellSets(spellSetsDTO)
                 .objectSet(objectSetsDTO)
                 .runeSet(runeSetsDTO)

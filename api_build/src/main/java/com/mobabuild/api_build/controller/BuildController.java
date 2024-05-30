@@ -163,6 +163,12 @@ public class BuildController {
 
         UserDTO userDTO = convertToUserDTO(buildComand.getUser());
 
+        ChampionsDTO championsDTO = ChampionsDTO.builder()
+                .id(buildComand.getChampions().getId())
+                .name(buildComand.getChampions().getName())
+                .image(buildComand.getChampions().getImage())
+                .build();
+
         List<SpellSetDTO> spellSetsDTO = buildComand.getSpellSets().stream()
                 .map(spellSet -> SpellSetDTO.builder()
                         .id(spellSet.getId())
@@ -198,7 +204,7 @@ public class BuildController {
         return BuildDTO.builder()
                 .buildName(buildComand.getBuildName())
                 .user(userDTO)
-                .champions(buildComand.getChampions())
+                .champions(championsDTO)
                 .spellSets(spellSetsDTO)
                 .objectSet(objectSetsDTO)
                 .runeSet(runeSetsDTO)
@@ -237,6 +243,12 @@ public class BuildController {
     private BuildDTO createBuildDTO(Build build){
 
         UserDTO userDTO = createUserDTO(build.getUser());
+
+        ChampionsDTO championsDTO = ChampionsDTO.builder()
+                .id(build.getChampions().getId())
+                .name(build.getChampions().getName())
+                .image(build.getChampions().getImage())
+                .build();
 
         List<SpellSetDTO> spellSetsDTO = build.getSpellSets().stream()
                 .map(spellSet -> SpellSetDTO.builder()
@@ -277,7 +289,7 @@ public class BuildController {
                 .id(build.getId())
                 .buildName(build.getBuildName())
                 .user(userDTO)
-                .champions(build.getChampions())
+                .champions(championsDTO)
                 .spellSets(spellSetsDTO)
                 .objectSet(objectSetsDTO)
                 .runeSet(runeSetsDTO)
@@ -323,6 +335,7 @@ public class BuildController {
         return ObjectDTO.builder()
                 .id(object.getId())
                 .name(object.getName())
+                .image(object.getImage())
                 .build();
     }
 }

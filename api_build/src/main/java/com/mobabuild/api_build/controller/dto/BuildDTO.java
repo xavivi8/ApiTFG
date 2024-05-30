@@ -18,7 +18,7 @@ public class BuildDTO {
     private Long id;
     private String buildName;
     private UserDTO user;
-    private Champions champions;
+    private ChampionsDTO champions;
     private List<SpellSetDTO> spellSets = new ArrayList<>();
     private List<ObjectSetDTO> objectSet = new ArrayList<>();
     private List<RuneSetDTO> runeSet = new ArrayList<>();
