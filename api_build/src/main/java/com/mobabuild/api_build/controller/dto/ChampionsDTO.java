@@ -1,6 +1,7 @@
 package com.mobabuild.api_build.controller.dto;
 
 import com.mobabuild.api_build.entities.*;
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,5 +18,6 @@ public class ChampionsDTO {
 
     private Long id;
     private String name;
+    private byte[] image;
     private List<BuildDTO> builds;
 }

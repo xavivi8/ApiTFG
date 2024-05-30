@@ -6,6 +6,8 @@ import com.mobabuild.api_build.entities.Champions;
 import com.mobabuild.api_build.entities.Object;
 import com.mobabuild.api_build.service.IChampionsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -124,22 +126,24 @@ public class ChampionsController {
         }
     }
 
-    @GetMapping("/setChampion/{name}")
-    public ResponseEntity<?> setChampion(@PathVariable String name){
-        int response = championsService.setChampion(name);
+    @PostMapping("/create")
+    public ResponseEntity<?> create(@RequestBody ChampionComand championComand){
+        try {
 
-        if(response == 1){
+            ChampionsDTO championsDTO = championsService.save(championComand);
 
-            return ResponseEntity.ok(1);
+            return ResponseEntity.ok(championsDTO);
+        } catch (DataIntegrityViolationException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error de integridad de datos: " + e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al añadir el campeon: " + e.getMessage());
         }
-
-        return  ResponseEntity.notFound().build();
     }
 
     @PutMapping("/update")
     public ResponseEntity<?> updateChampion(@RequestBody ChampionComand championComand){
         try {
-            ChampionsDTO championsDTO = championsService.updateChampion(championComand);
+            ChampionsDTO championsDTO = championsService.save(championComand);
             return ResponseEntity.ok(championsDTO);
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();

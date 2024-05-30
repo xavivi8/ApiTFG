@@ -32,8 +32,12 @@ public class ChampionsServiceImpl implements IChampionsService {
     }
 
     @Override
-    public void save(Champions champions) {
+    public ChampionsDTO save(ChampionComand championComand) {
+        Champions champions = convertToChampion(championComand);
+
         championsDAO.save(champions);
+
+        return createChampionDTO(champions);
     }
 
     @Override
@@ -77,5 +81,19 @@ public class ChampionsServiceImpl implements IChampionsService {
         }
     }
 
+    private Champions convertToChampion(ChampionComand championComand){
+        return Champions.builder()
+                .id(championComand.getId())
+                .name(championComand.getName())
+                .image(championComand.getImage())
+                .build();
+    }
 
+    private ChampionsDTO createChampionDTO(Champions champions){
+        return ChampionsDTO.builder()
+                .id(champions.getId())
+                .name(champions.getName())
+                .image(champions.getImage())
+                .build();
+    }
 }

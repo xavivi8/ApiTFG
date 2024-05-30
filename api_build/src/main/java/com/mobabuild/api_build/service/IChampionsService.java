@@ -13,7 +13,7 @@ public interface IChampionsService {
 
     Optional<Champions> findById(Long id);
 
-    void save(Champions champions);
+    ChampionsDTO save(ChampionComand championComand);
 
     void deleteById(Long id);
 
