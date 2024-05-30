@@ -6,6 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="9c1c4298-fff0-4c64-9625-9fa5c8d7fce2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/ChampionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/ChampionsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/ObjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/ObjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/comand/ChampionComand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/comand/ChampionComand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/comand/ObjectComand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/comand/ObjectComand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/ChampionsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/ChampionsDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/ObjectDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/dto/ObjectDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/entities/Champions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/entities/Champions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/entities/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/entities/Object.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IChampionsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IChampionsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IObjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IObjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/ChampionsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/ChampionsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/ObjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/ObjectServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,13 +118,8 @@
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/ObjectController.java</url>
-          <line>86</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/ChampionsServiceImpl.java</url>
-          <line>50</line>
+          <line>54</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -165,11 +173,6 @@
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/BuildController.java</url>
-          <line>78</line>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java</url>
           <line>42</line>
           <option name="timeStamp" value="61" />
@@ -178,15 +181,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java</url>
           <line>62</line>
           <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/ObjectController.java</url>
-          <line>85</line>
-          <properties class="com.mobabuild.api_build.controller.ObjectController" method="updateObjectName">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
