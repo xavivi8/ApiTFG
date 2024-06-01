@@ -1,6 +1,7 @@
 package com.mobabuild.api_build.controller;
 
 import com.mobabuild.api_build.controller.comand.UserComand;
+import com.mobabuild.api_build.controller.comand.UserLoginComand;
 import com.mobabuild.api_build.controller.dto.AuthorityDTO;
 import com.mobabuild.api_build.controller.dto.UserDTO;
 import com.mobabuild.api_build.controller.request.AddUserRequest;
@@ -77,6 +78,68 @@ public class UserController {
         try {
             UserDTO updatedUser = userService.updateUser(userComand);
             return ResponseEntity.ok(updatedUser);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<UserDTO> findByUserAndPass(@RequestBody UserLoginComand userLoginComand){
+        try {
+            User user = userService.findByUserAndPass(userLoginComand.getEmail(), userLoginComand.getPass());
+
+            List<AuthorityDTO> authorityDTOs = user.getAuthorities().stream()
+                    .map(authority -> AuthorityDTO.builder()
+                            .id(authority.getId())
+                            .name(authority.getName())
+                            .build())
+                    .collect(Collectors.toList());
+
+            UserDTO userDTO = UserDTO.builder()
+                    .id(user.getId())
+                    .email(user.getEmail())
+                    .user_name(user.getUser_name())
+                    .pass(user.getPass())
+                    .image(user.getImage())
+                    .authorities(authorityDTOs)
+                    .build();
+
+            return ResponseEntity.ok(userDTO);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<UserDTO> createUser(@RequestBody UserComand userComand){
+        try {
+            Optional<Authority> authorityOptional = authorityService.findByName(AuthorityName.READ);
+            if (authorityOptional.isPresent()){
+                User newUser = User.builder()
+                        .email(userComand.getEmail())
+                        .user_name(userComand.getUser_name())
+                        .pass(userComand.getPass())
+                        .build();
+
+                List<AuthorityDTO> authorityDTOs = newUser.getAuthorities().stream()
+                        .map(authority -> AuthorityDTO.builder()
+                                .id(authority.getId())
+                                .name(authority.getName())
+                                .build())
+                        .collect(Collectors.toList());
+
+                UserDTO userDTO = UserDTO.builder()
+                        .id(newUser.getId())
+                        .email(newUser.getEmail())
+                        .user_name(newUser.getUser_name())
+                        .pass(newUser.getPass())
+                        .image(newUser.getImage())
+                        .authorities(authorityDTOs)
+                        .build();
+                return ResponseEntity.ok(userDTO);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
         }
