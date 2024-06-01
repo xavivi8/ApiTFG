@@ -32,6 +32,7 @@ public class RuneController {
             RuneDTO runeDTO = RuneDTO.builder()
                     .id(rune.getId())
                     .name(rune.getName())
+                    .rowType(rune.getRowType())
                     .group_name(rune.getGroup_name())
                     .description(rune.getDescription())
                     .long_description(rune.getLong_description())
