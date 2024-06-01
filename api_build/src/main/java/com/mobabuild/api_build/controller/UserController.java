@@ -113,15 +113,23 @@ public class UserController {
     @PostMapping("/create")
     public ResponseEntity<UserDTO> createUser(@RequestBody UserComand userComand){
         try {
-            Optional<Authority> authorityOptional = authorityService.findByName(AuthorityName.READ);
-            if (authorityOptional.isPresent()){
+            Optional<Authority> authorityReadOptional = authorityService.findByName(AuthorityName.READ);
+            Optional<Authority> authorityWriteOptional = authorityService.findByName(AuthorityName.WRITE);
+            if (authorityReadOptional.isPresent() && authorityWriteOptional.isPresent()){
+                List<Authority> authorities = new ArrayList<>();
+                authorities.add(authorityReadOptional.get());
+                authorities.add(authorityWriteOptional.get());
+
                 User newUser = User.builder()
                         .email(userComand.getEmail())
                         .user_name(userComand.getUser_name())
                         .pass(userComand.getPass())
+                        .authorities(authorities)
                         .build();
 
-                List<AuthorityDTO> authorityDTOs = newUser.getAuthorities().stream()
+                User user = userService.save(newUser);
+
+                List<AuthorityDTO> authorityDTOs = user.getAuthorities().stream()
                         .map(authority -> AuthorityDTO.builder()
                                 .id(authority.getId())
                                 .name(authority.getName())
@@ -129,11 +137,11 @@ public class UserController {
                         .collect(Collectors.toList());
 
                 UserDTO userDTO = UserDTO.builder()
-                        .id(newUser.getId())
-                        .email(newUser.getEmail())
-                        .user_name(newUser.getUser_name())
-                        .pass(newUser.getPass())
-                        .image(newUser.getImage())
+                        .id(user.getId())
+                        .email(user.getEmail())
+                        .user_name(user.getUser_name())
+                        .pass(user.getPass())
+                        .image(user.getImage())
                         .authorities(authorityDTOs)
                         .build();
                 return ResponseEntity.ok(userDTO);
