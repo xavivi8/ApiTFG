@@ -16,4 +16,6 @@ public interface IBuildDAO {
     void deleteById(Long id);
 
     List<Build> findByChampionsId(Long championsId);
+
+    List<Build> findByUserId(Long userId);
 }

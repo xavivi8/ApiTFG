@@ -79,6 +79,14 @@ public class BuildServiceImpl implements IBuildService {
         return buildDTOList;
     }
 
+    @Override
+    public List<BuildDTO> findByUserId(UserComand userComand) {
+        List<BuildDTO> buildDTOList = buildDAO.findByUserId(userComand.getId()).stream()
+                .map(this::createBuildDTO)
+                .collect(Collectors.toList());
+        return buildDTOList;
+    }
+
     private BuildDTO createBuildDTO(Build build){
 
         UserDTO userDTO = createUserDTO(build.getUser());

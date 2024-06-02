@@ -39,4 +39,9 @@ public class BuildDAOImpl implements IBuildDAO {
     public List<Build> findByChampionsId(Long championsId) {
         return buildRepository.findByChampionsId(championsId);
     }
+
+    @Override
+    public List<Build> findByUserId(Long userId) {
+        return buildRepository.findByUserId(userId);
+    }
 }

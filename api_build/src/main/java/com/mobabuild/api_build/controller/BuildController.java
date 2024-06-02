@@ -58,6 +58,17 @@ public class BuildController {
         }
     }
 
+    @PostMapping("/findByUser")
+    public ResponseEntity<List<BuildDTO>> findByUser(@RequestBody UserComand userComand) {
+        try {
+            List<BuildDTO> builds = buildService.findByUserId(userComand);
+            return ResponseEntity.ok(builds);
+        } catch (Exception e) {
+            // Manejo de la excepción
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody BuildComand buildComand){
         try {

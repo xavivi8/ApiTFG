@@ -2,6 +2,7 @@ package com.mobabuild.api_build.service;
 
 import com.mobabuild.api_build.controller.comand.BuildComand;
 import com.mobabuild.api_build.controller.comand.ChampionComand;
+import com.mobabuild.api_build.controller.comand.UserComand;
 import com.mobabuild.api_build.controller.dto.BuildDTO;
 import com.mobabuild.api_build.entities.Build;
 import com.mobabuild.api_build.entities.Champions;
@@ -20,4 +21,6 @@ public interface IBuildService {
     void deleteById(Long id);
 
     List<BuildDTO> findByChampionsId(ChampionComand championComand);
+
+    List<BuildDTO> findByUserId(UserComand userComand);
 }
