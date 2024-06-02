@@ -31,6 +31,6 @@ public class Rune {
     @Column(name = "long_description")
     private String long_description;
 
-    @Column(name = "image")
+    @Column(name = "image", columnDefinition = "LONGBLOB")
     private byte[] image;
 }

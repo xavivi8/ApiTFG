@@ -23,7 +23,7 @@ public class Object {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "image")
+    @Column(name = "image", columnDefinition = "LONGBLOB")
     private byte[] image;
 
     @ManyToMany(mappedBy = "objects", cascade = CascadeType.ALL, fetch =  FetchType.LAZY)

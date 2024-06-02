@@ -35,7 +35,7 @@ public class Spell {
     @Column(name = "cooldown")
     private String cooldown;
 
-    @Column(name = "image")
+    @Column(name = "image", columnDefinition = "LONGBLOB")
     private byte[] image;
 
     @ManyToMany(mappedBy = "spells")

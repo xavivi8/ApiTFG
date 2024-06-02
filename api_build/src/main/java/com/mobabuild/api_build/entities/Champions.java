@@ -22,7 +22,7 @@ public class Champions {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "image")
+    @Column(name = "image", columnDefinition = "LONGBLOB")
     private byte[] image;
 
     @OneToMany(mappedBy = "champions", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)

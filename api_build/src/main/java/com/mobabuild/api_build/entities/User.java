@@ -37,7 +37,7 @@ public class User {
     @Column(name = "pass")
     private String pass;
 
-    @Column(name = "image")
+    @Column(name = "image", columnDefinition = "LONGBLOB")
     private byte[] image;
 
     /*
