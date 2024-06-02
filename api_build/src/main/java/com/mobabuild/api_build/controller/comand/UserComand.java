@@ -5,6 +5,7 @@ import com.mobabuild.api_build.entities.Build;
 import com.mobabuild.api_build.entities.FavoriteBuild;
 import lombok.*;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class UserComand {
     private String email;
     private String user_name;
     private String pass;
-    private byte[] image;
+    private Blob image;
     //private List<Build> builds = new ArrayList<>(); // No cargar builds aquí
     private List<Authority> authorities;
 }

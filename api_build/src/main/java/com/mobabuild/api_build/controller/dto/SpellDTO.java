@@ -3,6 +3,7 @@ package com.mobabuild.api_build.controller.dto;
 import com.mobabuild.api_build.entities.SpellSet;
 import lombok.*;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 

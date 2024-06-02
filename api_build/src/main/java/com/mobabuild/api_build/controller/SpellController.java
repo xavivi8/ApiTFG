@@ -7,6 +7,7 @@ import com.mobabuild.api_build.controller.dto.SpellDTO;
 import com.mobabuild.api_build.entities.Object;
 import com.mobabuild.api_build.entities.Spell;
 import com.mobabuild.api_build.service.ISpellService;
+import com.mobabuild.api_build.utils.BlobUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +37,7 @@ public class SpellController {
                     .game_mode(spell.getGame_mode())
                     .description(spell.getDescription())
                     .cooldown(spell.getCooldown())
-                    .image(spell.getImage())
+                    .image(BlobUtils.blobToBytes(spell.getImage()))
                     //.spellSets(spell.getSpellSets())
                     .build();
 
@@ -60,7 +61,7 @@ public class SpellController {
                         .game_mode(spell.getGame_mode())
                         .description(spell.getDescription())
                         .cooldown(spell.getCooldown())
-                        .image(spell.getImage())
+                        .image(BlobUtils.blobToBytes(spell.getImage()))
                         //.spellSets(spell.getSpellSets())
                         .build();
                 spellDTOList.add(spellDTO);
@@ -101,7 +102,7 @@ public class SpellController {
                     .game_mode(spellComand.getGame_mode())
                     .description(spellComand.getDescription())
                     .cooldown(spellComand.getCooldown())
-                    .image(spellComand.getImage())
+                    .image(BlobUtils.blobToBytes(spellComand.getImage()))
                     .build();
 
             return ResponseEntity.ok(spellDTO);

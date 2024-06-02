@@ -5,6 +5,7 @@ import com.mobabuild.api_build.controller.dto.*;
 import com.mobabuild.api_build.entities.*;
 import com.mobabuild.api_build.entities.Object;
 import com.mobabuild.api_build.service.IBuildService;
+import com.mobabuild.api_build.utils.BlobUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -177,7 +178,7 @@ public class BuildController {
         ChampionsDTO championsDTO = ChampionsDTO.builder()
                 .id(buildComand.getChampions().getId())
                 .name(buildComand.getChampions().getName())
-                .image(buildComand.getChampions().getImage())
+                .image(BlobUtils.blobToBytes(buildComand.getChampions().getImage()))
                 .build();
 
         List<SpellSetDTO> spellSetsDTO = buildComand.getSpellSets().stream()
@@ -228,7 +229,7 @@ public class BuildController {
                 .email(userComand.getEmail())
                 .user_name(userComand.getUser_name())
                 .pass(userComand.getPass())
-                .image(userComand.getImage())
+                .image(BlobUtils.blobToBytes(userComand.getImage()))
                 .build();
     }
 
@@ -240,7 +241,7 @@ public class BuildController {
                 .game_mode(spellComand.getGame_mode())
                 .description(spellComand.getDescription())
                 .cooldown(spellComand.getCooldown())
-                .image(spellComand.getImage())
+                .image(BlobUtils.blobToBytes(spellComand.getImage()))
                 .build();
     }
 
@@ -258,7 +259,7 @@ public class BuildController {
         ChampionsDTO championsDTO = ChampionsDTO.builder()
                 .id(build.getChampions().getId())
                 .name(build.getChampions().getName())
-                .image(build.getChampions().getImage())
+                .image(BlobUtils.blobToBytes(build.getChampions().getImage()))
                 .build();
 
         List<SpellSetDTO> spellSetsDTO = build.getSpellSets().stream()
@@ -314,7 +315,7 @@ public class BuildController {
                 .email(user.getEmail())
                 .user_name(user.getUser_name())
                 .pass(user.getPass())
-                .image(user.getImage())
+                .image(BlobUtils.blobToBytes(user.getImage()))
                 .build();
     }
 
@@ -338,7 +339,7 @@ public class BuildController {
                 .game_mode(spell.getGame_mode())
                 .description(spell.getDescription())
                 .cooldown(spell.getCooldown())
-                .image(spell.getImage())
+                .image(BlobUtils.blobToBytes(spell.getImage()))
                 .build();
     }
 
@@ -346,7 +347,7 @@ public class BuildController {
         return ObjectDTO.builder()
                 .id(object.getId())
                 .name(object.getName())
-                .image(object.getImage())
+                .image(BlobUtils.blobToBytes(object.getImage()))
                 .build();
     }
 }

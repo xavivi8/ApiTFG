@@ -4,6 +4,7 @@ import com.mobabuild.api_build.entities.ObjectSet;
 import jakarta.persistence.Column;
 import lombok.*;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 

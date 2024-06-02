@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class Spell {
     private String cooldown;
 
     @Column(name = "image", columnDefinition = "LONGBLOB")
-    private byte[] image;
+    private Blob image;
 
     @ManyToMany(mappedBy = "spells")
     @JsonIgnore

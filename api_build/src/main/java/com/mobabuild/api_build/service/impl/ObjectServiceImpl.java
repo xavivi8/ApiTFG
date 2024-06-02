@@ -5,6 +5,7 @@ import com.mobabuild.api_build.controller.dto.ObjectDTO;
 import com.mobabuild.api_build.entities.Object;
 import com.mobabuild.api_build.persistence.IObjectDAO;
 import com.mobabuild.api_build.service.IObjectService;
+import com.mobabuild.api_build.utils.BlobUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,7 +56,7 @@ public class ObjectServiceImpl implements IObjectService {
         return Object.builder()
                 .id(objectComand.getId())
                 .name(objectComand.getName())
-                .image(objectComand.getImage())
+                .image(BlobUtils.bytesToBlob(objectComand.getImage()))
                 .build();
     }
 
@@ -63,7 +64,7 @@ public class ObjectServiceImpl implements IObjectService {
         return ObjectDTO.builder()
                 .id(object.getId())
                 .name(object.getName())
-                .image(object.getImage())
+                .image(BlobUtils.blobToBytes(object.getImage()))
                 .build();
     }
 }

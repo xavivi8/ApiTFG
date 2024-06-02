@@ -2,6 +2,8 @@ package com.mobabuild.api_build.controller.comand;
 
 import lombok.*;
 
+import java.sql.Blob;
+
 @Data
 @Getter
 @Setter
@@ -15,5 +17,5 @@ public class RuneComand {
     private String group_name;
     private String description;
     private String long_description;
-    private byte[] image;
+    private Blob image;
 }

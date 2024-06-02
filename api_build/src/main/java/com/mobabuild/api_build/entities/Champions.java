@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.sql.Blob;
 import java.util.List;
 
 @Setter
@@ -23,7 +24,7 @@ public class Champions {
     private String name;
 
     @Column(name = "image", columnDefinition = "LONGBLOB")
-    private byte[] image;
+    private Blob image;
 
     @OneToMany(mappedBy = "champions", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JsonIgnore

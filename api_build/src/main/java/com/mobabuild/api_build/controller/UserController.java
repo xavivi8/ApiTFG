@@ -10,6 +10,7 @@ import com.mobabuild.api_build.entities.User;
 import com.mobabuild.api_build.service.IAuthorityService;
 import com.mobabuild.api_build.service.IUserService;
 import com.mobabuild.api_build.utils.AuthorityName;
+import com.mobabuild.api_build.utils.BlobUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -65,7 +66,7 @@ public class UserController {
                     .email(user.getEmail())
                     .user_name(user.getUser_name())
                     .pass(user.getPass())
-                    .image(user.getImage())
+                    .image(BlobUtils.blobToBytes(user.getImage()))
                     .authorities(authorityDTOs)
                     .build();
             return  ResponseEntity.ok(userDTO);
@@ -100,7 +101,7 @@ public class UserController {
                     .email(user.getEmail())
                     .user_name(user.getUser_name())
                     .pass(user.getPass())
-                    .image(user.getImage())
+                    .image(BlobUtils.blobToBytes(user.getImage()))
                     .authorities(authorityDTOs)
                     .build();
 
@@ -141,7 +142,7 @@ public class UserController {
                         .email(user.getEmail())
                         .user_name(user.getUser_name())
                         .pass(user.getPass())
-                        .image(user.getImage())
+                        .image(BlobUtils.blobToBytes(user.getImage()))
                         .authorities(authorityDTOs)
                         .build();
                 return ResponseEntity.ok(userDTO);
@@ -211,7 +212,7 @@ public class UserController {
                 .email(newUser.getEmail())
                 .user_name(newUser.getUser_name())
                 .pass(newUser.getPass())
-                .image(newUser.getImage())
+                .image(BlobUtils.blobToBytes(newUser.getImage()))
                 .authorities(authorityDTOs)
                 .build();
 
@@ -240,7 +241,7 @@ public class UserController {
                     .email(user.getEmail())
                     .user_name(user.getUser_name())
                     .pass(user.getPass())
-                    .image(user.getImage())
+                    .image(BlobUtils.blobToBytes(user.getImage()))
                     .authorities(authorityDTOs)
                     .build();
         }).collect(Collectors.toList());

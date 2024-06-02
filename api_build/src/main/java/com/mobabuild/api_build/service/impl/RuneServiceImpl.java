@@ -7,6 +7,7 @@ import com.mobabuild.api_build.entities.Rune;
 import com.mobabuild.api_build.entities.Spell;
 import com.mobabuild.api_build.persistence.IRuneDAO;
 import com.mobabuild.api_build.service.IRuneService;
+import com.mobabuild.api_build.utils.BlobUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -72,7 +73,7 @@ public class RuneServiceImpl implements IRuneService {
                     .group_name(runeComand.getGroup_name())
                     .description(runeComand.getDescription())
                     .long_description(runeComand.getLong_description())
-                    .image(runeComand.getImage())
+                    .image(BlobUtils.blobToBytes(runeComand.getImage()))
                     .build();
 
             return runeDTO;

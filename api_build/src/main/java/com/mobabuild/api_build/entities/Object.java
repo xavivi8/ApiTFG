@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class Object {
     private String name;
 
     @Column(name = "image", columnDefinition = "LONGBLOB")
-    private byte[] image;
+    private Blob image;
 
     @ManyToMany(mappedBy = "objects", cascade = CascadeType.ALL, fetch =  FetchType.LAZY)
     @JsonIgnore

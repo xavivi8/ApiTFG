@@ -6,6 +6,7 @@ import com.mobabuild.api_build.entities.*;
 import com.mobabuild.api_build.entities.Object;
 import com.mobabuild.api_build.persistence.IBuildDAO;
 import com.mobabuild.api_build.service.IBuildService;
+import com.mobabuild.api_build.utils.BlobUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -94,7 +95,7 @@ public class BuildServiceImpl implements IBuildService {
         ChampionsDTO championsDTO = ChampionsDTO.builder()
                 .id(build.getChampions().getId())
                 .name(build.getChampions().getName())
-                .image(build.getChampions().getImage())
+                .image(BlobUtils.blobToBytes(build.getChampions().getImage()))
                 .build();
 
         List<SpellSetDTO> spellSetsDTO = build.getSpellSets().stream()
@@ -150,7 +151,6 @@ public class BuildServiceImpl implements IBuildService {
                 .email(user.getEmail())
                 .user_name(user.getUser_name())
                 .pass(user.getPass())
-                .image(user.getImage())
                 .build();
     }
 
@@ -174,7 +174,7 @@ public class BuildServiceImpl implements IBuildService {
                 .game_mode(spell.getGame_mode())
                 .description(spell.getDescription())
                 .cooldown(spell.getCooldown())
-                .image(spell.getImage())
+                .image(BlobUtils.blobToBytes(spell.getImage()))
                 .build();
     }
 
@@ -182,7 +182,7 @@ public class BuildServiceImpl implements IBuildService {
         return ObjectDTO.builder()
                 .id(object.getId())
                 .name(object.getName())
-                .image(object.getImage())
+                .image(BlobUtils.blobToBytes(object.getImage()))
                 .build();
     }
 
@@ -270,7 +270,7 @@ public class BuildServiceImpl implements IBuildService {
         return Object.builder()
                 .id(objectComand.getId())
                 .name(objectComand.getName())
-                .image(objectComand.getImage())
+                .image(BlobUtils.bytesToBlob(objectComand.getImage()))
                 .build();
     }
 }

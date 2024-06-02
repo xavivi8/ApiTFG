@@ -3,6 +3,8 @@ package com.mobabuild.api_build.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.sql.Blob;
+
 @Setter
 @Getter
 @Builder
@@ -32,5 +34,5 @@ public class Rune {
     private String long_description;
 
     @Column(name = "image", columnDefinition = "LONGBLOB")
-    private byte[] image;
+    private Blob image;
 }

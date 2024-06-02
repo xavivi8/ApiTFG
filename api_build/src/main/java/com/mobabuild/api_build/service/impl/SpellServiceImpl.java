@@ -5,6 +5,7 @@ import com.mobabuild.api_build.controller.dto.SpellDTO;
 import com.mobabuild.api_build.entities.Spell;
 import com.mobabuild.api_build.persistence.ISpellDAO;
 import com.mobabuild.api_build.service.ISpellService;
+import com.mobabuild.api_build.utils.BlobUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -60,7 +61,7 @@ public class SpellServiceImpl implements ISpellService {
                     .game_mode(spellComand.getGame_mode())
                     .description(spellComand.getDescription())
                     .cooldown(spellComand.getCooldown())
-                    .image(spellComand.getImage())
+                    .image(BlobUtils.blobToBytes(spellComand.getImage()))
                     .build();
 
             return spellDTO;

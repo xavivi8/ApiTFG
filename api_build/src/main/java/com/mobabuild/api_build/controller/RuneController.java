@@ -7,6 +7,7 @@ import com.mobabuild.api_build.controller.dto.SpellDTO;
 import com.mobabuild.api_build.entities.Object;
 import com.mobabuild.api_build.entities.Rune;
 import com.mobabuild.api_build.service.IRuneService;
+import com.mobabuild.api_build.utils.BlobUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +37,7 @@ public class RuneController {
                     .group_name(rune.getGroup_name())
                     .description(rune.getDescription())
                     .long_description(rune.getLong_description())
-                    .image(rune.getImage())
+                    .image(BlobUtils.blobToBytes(rune.getImage()))
                     .build();
 
             return ResponseEntity.ok(runeDTO);
@@ -59,7 +60,7 @@ public class RuneController {
                         .group_name(rune.getGroup_name())
                         .description(rune.getDescription())
                         .long_description(rune.getLong_description())
-                        .image(rune.getImage())
+                        .image(BlobUtils.blobToBytes(rune.getImage()))
                         .build();
                 runeDTOList.add(runeDTO);
             }
@@ -99,7 +100,7 @@ public class RuneController {
                     .group_name(runeComand.getGroup_name())
                     .description(runeComand.getDescription())
                     .long_description(runeComand.getLong_description())
-                    .image(runeComand.getImage())
+                    .image(BlobUtils.blobToBytes(runeComand.getImage()))
                     .build();
 
             return ResponseEntity.ok(runeDTO);

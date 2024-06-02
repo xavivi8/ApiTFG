@@ -8,6 +8,7 @@ import com.mobabuild.api_build.entities.User;
 import com.mobabuild.api_build.persistence.IBuildDAO;
 import com.mobabuild.api_build.persistence.IChampionsDAO;
 import com.mobabuild.api_build.service.IChampionsService;
+import com.mobabuild.api_build.utils.BlobUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -93,7 +94,7 @@ public class ChampionsServiceImpl implements IChampionsService {
         return ChampionsDTO.builder()
                 .id(champions.getId())
                 .name(champions.getName())
-                .image(champions.getImage())
+                .image(BlobUtils.blobToBytes(champions.getImage()))
                 .build();
     }
 }

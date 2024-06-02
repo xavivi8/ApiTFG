@@ -7,6 +7,7 @@ import com.mobabuild.api_build.entities.Authority;
 import com.mobabuild.api_build.entities.User;
 import com.mobabuild.api_build.persistence.IUserDAO;
 import com.mobabuild.api_build.service.IUserService;
+import com.mobabuild.api_build.utils.BlobUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -70,7 +71,7 @@ public class UserServiceImpl implements IUserService {
                     .email(userOptionalExist.getEmail())
                     .user_name(userOptionalExist.getUser_name())
                     .pass(userOptionalExist.getPass())
-                    .image(userOptionalExist.getImage())
+                    .image(BlobUtils.blobToBytes(userOptionalExist.getImage()))
                     .authorities(authorityDTOs)
                     .build();
 

@@ -3,6 +3,7 @@ package com.mobabuild.api_build.controller.comand;
 import com.mobabuild.api_build.controller.dto.SpellSetDTO;
 import lombok.*;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +20,6 @@ public class SpellComand {
     private String game_mode;
     private String description;
     private String cooldown;
-    private byte[] image;
+    private Blob image;
     private List<SpellSetComand> spellSets = new ArrayList<>();
 }

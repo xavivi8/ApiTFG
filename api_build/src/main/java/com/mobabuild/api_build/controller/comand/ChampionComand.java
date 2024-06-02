@@ -4,6 +4,7 @@ import com.mobabuild.api_build.entities.Build;
 import jakarta.persistence.Column;
 import lombok.*;
 
+import java.sql.Blob;
 import java.util.List;
 
 @Data
@@ -15,6 +16,6 @@ import java.util.List;
 public class ChampionComand {
     private Long id;
     private String name;
-    private byte[] image;
+    private Blob image;
     private List<Build> builds;
 }

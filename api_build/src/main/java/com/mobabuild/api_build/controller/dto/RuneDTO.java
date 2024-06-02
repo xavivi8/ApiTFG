@@ -2,6 +2,8 @@ package com.mobabuild.api_build.controller.dto;
 
 import lombok.*;
 
+import java.sql.Blob;
+
 @Data
 @Getter
 @Setter

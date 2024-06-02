@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class User {
     private String pass;
 
     @Column(name = "image", columnDefinition = "LONGBLOB")
-    private byte[] image;
+    private Blob image;
 
     /*
     * FetchType.LAZ para no sobrecargar el listado

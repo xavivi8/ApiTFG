@@ -5,6 +5,7 @@ import com.mobabuild.api_build.entities.Build;
 import com.mobabuild.api_build.entities.FavoriteBuild;
 import lombok.*;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
