@@ -22,6 +22,16 @@ public class BuildController {
     @Autowired
     private IBuildService buildService;
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteById(@PathVariable Long id){
+        try {
+            buildService.deleteById(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error al eliminar la build: " + e.getMessage());
+        }
+    }
+
     @GetMapping("/findAll")
     public ResponseEntity<List<BuildDTO>> findAll(){
         try {
