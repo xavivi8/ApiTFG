@@ -30,6 +30,9 @@ public class BlobUtils {
     }
 
     public static Blob bytesToBlob(byte[] bytes) {
+        if (bytes == null) {
+            return null;
+        }
         try {
             return new SerialBlob(bytes);
         } catch (SQLException e) {
