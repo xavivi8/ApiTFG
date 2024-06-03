@@ -86,7 +86,7 @@ public class ChampionsServiceImpl implements IChampionsService {
         return Champions.builder()
                 .id(championComand.getId())
                 .name(championComand.getName())
-                .image(championComand.getImage())
+                .image(BlobUtils.bytesToBlob(championComand.getImage()))
                 .build();
     }
 

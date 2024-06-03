@@ -56,7 +56,7 @@ public class UserServiceImpl implements IUserService {
             userOptionalExist.setEmail(userComand.getEmail());
             userOptionalExist.setUser_name(userComand.getUser_name());
             userOptionalExist.setPass(userComand.getPass());
-            userOptionalExist.setImage(userComand.getImage());
+            userOptionalExist.setImage(BlobUtils.bytesToBlob(userComand.getImage()));
             userOptionalExist.setAuthorities(userComand.getAuthorities());
 
             List<AuthorityDTO> authorityDTOs = userOptionalExist.getAuthorities().stream()

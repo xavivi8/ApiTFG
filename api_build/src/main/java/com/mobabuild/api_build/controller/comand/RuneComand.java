@@ -17,5 +17,5 @@ public class RuneComand {
     private String group_name;
     private String description;
     private String long_description;
-    private Blob image;
+    private byte[] image;
 }

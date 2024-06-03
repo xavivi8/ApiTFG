@@ -61,7 +61,7 @@ public class RuneServiceImpl implements IRuneService {
                     .group_name(runeComand.getGroup_name())
                     .description(runeComand.getDescription())
                     .long_description(runeComand.getLong_description())
-                    .image(runeComand.getImage())
+                    .image(BlobUtils.bytesToBlob(runeComand.getImage()))
                     .build();
 
             runeDAO.save(rune);
@@ -73,7 +73,7 @@ public class RuneServiceImpl implements IRuneService {
                     .group_name(runeComand.getGroup_name())
                     .description(runeComand.getDescription())
                     .long_description(runeComand.getLong_description())
-                    .image(BlobUtils.blobToBytes(runeComand.getImage()))
+                    .image(BlobUtils.blobToBytes(BlobUtils.bytesToBlob(runeComand.getImage())))
                     .build();
 
             return runeDTO;

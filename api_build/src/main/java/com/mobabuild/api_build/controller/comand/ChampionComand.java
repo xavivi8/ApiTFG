@@ -16,6 +16,6 @@ import java.util.List;
 public class ChampionComand {
     private Long id;
     private String name;
-    private Blob image;
+    private byte[] image;
     private List<Build> builds;
 }

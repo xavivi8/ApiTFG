@@ -148,7 +148,7 @@ public class BuildController {
                 .email(userComand.getEmail())
                 .user_name(userComand.getUser_name())
                 .pass(userComand.getPass())
-                .image(userComand.getImage())
+                .image(BlobUtils.bytesToBlob(userComand.getImage()))
                 .build();
     }
 
@@ -160,7 +160,7 @@ public class BuildController {
                 .game_mode(spellComand.getGame_mode())
                 .description(spellComand.getDescription())
                 .cooldown(spellComand.getCooldown())
-                .image(spellComand.getImage())
+                .image(BlobUtils.bytesToBlob(spellComand.getImage()))
                 .build();
     }
 
@@ -229,7 +229,7 @@ public class BuildController {
                 .email(userComand.getEmail())
                 .user_name(userComand.getUser_name())
                 .pass(userComand.getPass())
-                .image(BlobUtils.blobToBytes(userComand.getImage()))
+                .image(BlobUtils.blobToBytes(BlobUtils.bytesToBlob(userComand.getImage())))
                 .build();
     }
 
@@ -241,7 +241,7 @@ public class BuildController {
                 .game_mode(spellComand.getGame_mode())
                 .description(spellComand.getDescription())
                 .cooldown(spellComand.getCooldown())
-                .image(BlobUtils.blobToBytes(spellComand.getImage()))
+                .image(BlobUtils.blobToBytes(BlobUtils.bytesToBlob(spellComand.getImage())))
                 .build();
     }
 

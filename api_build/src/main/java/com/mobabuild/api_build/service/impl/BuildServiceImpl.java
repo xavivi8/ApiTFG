@@ -250,7 +250,7 @@ public class BuildServiceImpl implements IBuildService {
                 .email(userComand.getEmail())
                 .user_name(userComand.getUser_name())
                 .pass(userComand.getPass())
-                .image(userComand.getImage())
+                .image(BlobUtils.bytesToBlob(userComand.getImage()))
                 .build();
     }
 
@@ -262,7 +262,7 @@ public class BuildServiceImpl implements IBuildService {
                 .game_mode(spellComand.getGame_mode())
                 .description(spellComand.getDescription())
                 .cooldown(spellComand.getCooldown())
-                .image(spellComand.getImage())
+                .image(BlobUtils.bytesToBlob(spellComand.getImage()))
                 .build();
     }
 

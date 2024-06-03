@@ -20,7 +20,7 @@ public class UserComand {
     private String email;
     private String user_name;
     private String pass;
-    private Blob image;
+    private byte[] image;
     //private List<Build> builds = new ArrayList<>(); // No cargar builds aquí
     private List<Authority> authorities;
 }

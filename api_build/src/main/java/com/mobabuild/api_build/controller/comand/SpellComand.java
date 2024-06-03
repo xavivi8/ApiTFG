@@ -20,6 +20,6 @@ public class SpellComand {
     private String game_mode;
     private String description;
     private String cooldown;
-    private Blob image;
+    private byte[] image;
     private List<SpellSetComand> spellSets = new ArrayList<>();
 }

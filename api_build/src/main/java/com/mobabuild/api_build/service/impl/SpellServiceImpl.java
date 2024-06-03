@@ -49,7 +49,7 @@ public class SpellServiceImpl implements ISpellService {
                     .game_mode(spellComand.getGame_mode())
                     .description(spellComand.getDescription())
                     .cooldown(spellComand.getCooldown())
-                    .image(spellComand.getImage())
+                    .image(BlobUtils.bytesToBlob(spellComand.getImage()))
                     .build();
 
             spellDAO.save(spell);
@@ -61,7 +61,7 @@ public class SpellServiceImpl implements ISpellService {
                     .game_mode(spellComand.getGame_mode())
                     .description(spellComand.getDescription())
                     .cooldown(spellComand.getCooldown())
-                    .image(BlobUtils.blobToBytes(spellComand.getImage()))
+                    .image(BlobUtils.blobToBytes(BlobUtils.bytesToBlob(spellComand.getImage())))
                     .build();
 
             return spellDTO;
