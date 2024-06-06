@@ -1,5 +1,6 @@
 package com.mobabuild.api_build.controller.comand;
 
+import com.mobabuild.api_build.controller.dto.BuildDTO;
 import com.mobabuild.api_build.entities.Build;
 import jakarta.persistence.Column;
 import lombok.*;
@@ -17,5 +18,5 @@ public class ChampionComand {
     private Long id;
     private String name;
     private byte[] image;
-    private List<Build> builds;
+    private List<BuildComand> builds;
 }
