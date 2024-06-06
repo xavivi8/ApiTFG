@@ -1,5 +1,6 @@
 package com.mobabuild.api_build.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.mobabuild.api_build.utils.AuthorityName;
 import jakarta.persistence.*;
 import lombok.*;
@@ -19,6 +20,10 @@ public class Authority {
         this.name = authorityName;
     }
 
+    public Authority(String authorityName) {
+        this.name = AuthorityName.valueOf(authorityName);
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -28,6 +33,7 @@ public class Authority {
     @Enumerated(EnumType.STRING)
     private AuthorityName name;
 
-    @ManyToMany(mappedBy = "authorities")
+    @ManyToMany(mappedBy = "authorities", fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("authorities")
     private List<User> users;
 }
