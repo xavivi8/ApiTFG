@@ -30,7 +30,6 @@ public class Build {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "champions_id", referencedColumnName = "id")
-    @JsonIgnore
     private Champions champions;
 
     @OneToMany(mappedBy = "build", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
