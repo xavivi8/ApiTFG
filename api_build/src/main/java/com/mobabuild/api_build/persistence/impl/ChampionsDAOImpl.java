@@ -6,6 +6,7 @@ import com.mobabuild.api_build.repository.ChampionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.sql.Blob;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,5 +39,10 @@ public class ChampionsDAOImpl implements IChampionsDAO {
     @Override
     public int setChampion(String name) {
         return championsRepository.setChampion(name);
+    }
+
+    @Override
+    public int updateChampion(Long id, String name, Blob image) {
+        return championsRepository.updateChampion(id, name, image);
     }
 }

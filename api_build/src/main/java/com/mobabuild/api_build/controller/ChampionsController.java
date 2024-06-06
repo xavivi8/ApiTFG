@@ -143,7 +143,7 @@ public class ChampionsController {
     @PutMapping("/update")
     public ResponseEntity<?> updateChampion(@RequestBody ChampionComand championComand){
         try {
-            ChampionsDTO championsDTO = championsService.save(championComand);
+            ChampionsDTO championsDTO = championsService.updateChampion(championComand);
             return ResponseEntity.ok(championsDTO);
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
