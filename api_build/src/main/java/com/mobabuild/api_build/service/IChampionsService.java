@@ -4,6 +4,7 @@ import com.mobabuild.api_build.controller.comand.ChampionComand;
 import com.mobabuild.api_build.controller.dto.ChampionsDTO;
 import com.mobabuild.api_build.entities.Champions;
 
+import java.sql.Blob;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,4 +21,5 @@ public interface IChampionsService {
     int setChampion(String name);
 
     ChampionsDTO updateChampion(ChampionComand championComand);
+
 }
