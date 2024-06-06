@@ -57,21 +57,12 @@ public class ChampionsServiceImpl implements IChampionsService {
         if (championsOptional.isPresent()) {
             Champions championsExist = championsOptional.get();
             championsExist.setName(championComand.getName());
-
-            // Verificar si la lista de builds es nula
-            List<Build> newBuilds = championComand.getBuilds();
-            if (newBuilds != null) {
-                // Actualizar la colección de builds
-                championsExist.getBuilds().clear();
-                for (Build build : newBuilds) {
-                    build.setChampions(championsExist);
-                    championsExist.getBuilds().add(build);
-                }
-            }
+            championsExist.setImage(BlobUtils.bytesToBlob(championComand.getImage()));
 
             ChampionsDTO championsDTO = ChampionsDTO.builder()
                     .id(championsExist.getId())
                     .name(championsExist.getName())
+                    .image(championComand.getImage())
                     .builds(null) // Asumiendo que no necesitas devolver la lista de builds en el DTO
                     .build();
 
