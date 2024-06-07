@@ -5,6 +5,7 @@ import com.mobabuild.api_build.utils.AuthorityName;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Setter
@@ -35,5 +36,6 @@ public class Authority {
 
     @ManyToMany(mappedBy = "authorities", fetch = FetchType.EAGER)
     @JsonIgnoreProperties("authorities")
-    private List<User> users;
+    @Builder.Default
+    private List<User> users = new ArrayList<>();
 }

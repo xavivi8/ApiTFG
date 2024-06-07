@@ -28,5 +28,6 @@ public class FavoriteBuild {
     @ElementCollection
     @CollectionTable(name = "favorite_builds", joinColumns = @JoinColumn(name = "favorite_build_id"))
     @Column(name = "build_id")
+    @Builder.Default
     private List<Long> builds = new ArrayList<>();
 }

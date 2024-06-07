@@ -29,5 +29,6 @@ public class Object {
 
     @ManyToMany(mappedBy = "objects", cascade = CascadeType.ALL, fetch =  FetchType.LAZY)
     @JsonIgnore
+    @Builder.Default
     private List<ObjectSet> objectSets = new ArrayList<>();
 }

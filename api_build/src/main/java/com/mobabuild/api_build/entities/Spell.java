@@ -41,5 +41,6 @@ public class Spell {
 
     @ManyToMany(mappedBy = "spells")
     @JsonIgnore
+    @Builder.Default
     private List<SpellSet> spellSets = new ArrayList<>();
 }

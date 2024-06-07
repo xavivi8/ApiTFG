@@ -35,5 +35,6 @@ public class ObjectSet {
             inverseJoinColumns = @JoinColumn(name = "object_id")
     )
     @JsonIgnore
+    @Builder.Default
     private List<Object> objects = new ArrayList<>();
 }

@@ -48,6 +48,7 @@ public class User {
     * */
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JsonIgnore
+    @Builder.Default
     private List<Build> builds = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -57,7 +58,8 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id")
     )
     @JsonIgnoreProperties("users")
-    private List<Authority> authorities;
+    @Builder.Default
+    private List<Authority> authorities = new ArrayList<>();
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore

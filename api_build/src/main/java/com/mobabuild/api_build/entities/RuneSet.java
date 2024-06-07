@@ -1,5 +1,6 @@
 package com.mobabuild.api_build.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -36,5 +37,6 @@ public class RuneSet {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "build")
+    @JsonIgnore
     private Build build;
 }

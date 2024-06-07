@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Blob;
+import java.util.ArrayList;
 import java.util.List;
 
 @Setter
@@ -28,5 +29,6 @@ public class Champions {
 
     @OneToMany(mappedBy = "champions", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JsonIgnore
-    private List<Build> builds;
+    @Builder.Default
+    private List<Build> builds = new ArrayList<>();
 }

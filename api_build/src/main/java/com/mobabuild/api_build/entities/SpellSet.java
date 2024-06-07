@@ -34,6 +34,7 @@ public class SpellSet {
             joinColumns = @JoinColumn(name = "spell_set_id"),
             inverseJoinColumns = @JoinColumn(name = "spell_id")
     )
+    @Builder.Default
     @JsonIgnore
     private List<Spell> spells = new ArrayList<>();
 }

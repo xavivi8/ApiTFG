@@ -34,13 +34,16 @@ public class Build {
 
     @OneToMany(mappedBy = "build", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JsonIgnore
+    @Builder.Default
     private List<SpellSet> spellSets = new ArrayList<>();
 
     @OneToMany(mappedBy = "build", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JsonIgnore
+    @Builder.Default
     private List<ObjectSet> objectSet = new ArrayList<>();
 
     @OneToMany(mappedBy = "build", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JsonIgnore
+    @Builder.Default
     private List<RuneSet> runeSet = new ArrayList<>();
 }
