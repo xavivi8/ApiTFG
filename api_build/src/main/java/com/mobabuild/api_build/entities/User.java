@@ -2,6 +2,10 @@ package com.mobabuild.api_build.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.mobabuild.api_build.utils.BlobDeserializer;
+import com.mobabuild.api_build.utils.BlobSerializer;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -40,6 +44,8 @@ public class User {
     private String pass;
 
     @Column(name = "image", columnDefinition = "LONGBLOB")
+    @JsonSerialize(using = BlobSerializer.class)
+    @JsonDeserialize(using = BlobDeserializer.class)
     private Blob image;
 
     /*

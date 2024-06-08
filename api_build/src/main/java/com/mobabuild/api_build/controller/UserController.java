@@ -11,6 +11,7 @@ import com.mobabuild.api_build.service.IUserService;
 import com.mobabuild.api_build.utils.AuthorityName;
 import com.mobabuild.api_build.utils.BlobUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import org.hibernate.Hibernate;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -43,43 +45,18 @@ public class UserController {
     }
 
     @GetMapping("/find/{id}")
-    public ResponseEntity<?> findById(@PathVariable Long id){
-        Optional<User> userOptional = userService.findById(id);
+    public ResponseEntity<?> findById(@PathVariable Long id) {
+        try {
+            UserDTO userDTO = userService.findById(id);
 
-        if(userOptional.isPresent()){
-            User user = userOptional.get();
-
-            if (user.getBuilds() == null) {
-                user.setBuilds(new ArrayList<>());
+            if (userDTO != null && userDTO.getId() != null) {
+                return ResponseEntity.ok(userDTO);
+            } else {
+                return ResponseEntity.notFound().build();
             }
-
-            // Inicializar la colección authorities antes de acceder a ella
-            Hibernate.initialize(user.getAuthorities());
-
-            // Convertir la lista de Authority a AuthorityDTO
-            List<AuthorityDTO> authorityDTOs = user.getAuthorities().stream()
-                    .map(authority -> AuthorityDTO.builder()
-                            .id(authority.getId())
-                            .name(authority.getName())
-                            .build())
-                    .collect(Collectors.toList());
-
-            List<BuildDTO> buildDTOList = user.getBuilds().stream()
-                    .map(this::createBuildDTO)
-                    .collect(Collectors.toList());
-
-            UserDTO userDTO = UserDTO.builder()
-                    .id(user.getId())
-                    .email(user.getEmail())
-                    .user_name(user.getUser_name())
-                    .pass(user.getPass())
-                    .image(BlobUtils.blobToBytes(user.getImage()))
-                    .authorities(authorityDTOs)
-                    .builds(buildDTOList)
-                    .build();
-            return  ResponseEntity.ok(userDTO);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al encontrar el usuario por el id: " + id);
         }
-        return ResponseEntity.notFound().build();
     }
 
     @PutMapping("/update")
@@ -95,24 +72,7 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<UserDTO> findByUserAndPass(@RequestBody UserLoginComand userLoginComand){
         try {
-            User user = userService.findByUserAndPass(userLoginComand.getEmail(), userLoginComand.getPass());
-
-            List<AuthorityDTO> authorityDTOs = user.getAuthorities().stream()
-                    .map(authority -> AuthorityDTO.builder()
-                            .id(authority.getId())
-                            .name(authority.getName())
-                            .build())
-                    .collect(Collectors.toList());
-
-            UserDTO userDTO = UserDTO.builder()
-                    .id(user.getId())
-                    .email(user.getEmail())
-                    .user_name(user.getUser_name())
-                    .pass(user.getPass())
-                    .image(BlobUtils.blobToBytes(user.getImage()))
-                    .authorities(authorityDTOs)
-                    .build();
-
+            UserDTO userDTO = userService.findByUserAndPass(userLoginComand);
             return ResponseEntity.ok(userDTO);
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
@@ -231,128 +191,11 @@ public class UserController {
 
     @GetMapping("/findAll")
     public ResponseEntity<List<UserDTO>> findAll() {
-        List<User> users = userService.findAll();
-
-        List<UserDTO> userDTOs = users.stream().map(user -> {
-            // Inicializar la colección authorities antes de acceder a ella
-            Hibernate.initialize(user.getAuthorities());
-
-            List<AuthorityDTO> authorityDTOs = user.getAuthorities().stream()
-                    .map(authority -> AuthorityDTO.builder()
-                            .id(authority.getId())
-                            .name(authority.getName())
-                            .build())
-                    .collect(Collectors.toList());
-
-            return UserDTO.builder()
-                    .id(user.getId())
-                    .email(user.getEmail())
-                    .user_name(user.getUser_name())
-                    .pass(user.getPass())
-                    .image(BlobUtils.blobToBytes(user.getImage()))
-                    .authorities(authorityDTOs)
-                    .build();
-        }).collect(Collectors.toList());
-
-        return ResponseEntity.ok(userDTOs);
-    }
-
-    private BuildDTO createBuildDTO(Build build){
-
-        UserDTO userDTO = createUserDTO(build.getUser());
-
-        ChampionsDTO championsDTO = ChampionsDTO.builder()
-                .id(build.getChampions().getId())
-                .name(build.getChampions().getName())
-                .image(BlobUtils.blobToBytes(build.getChampions().getImage()))
-                .build();
-
-        List<SpellSetDTO> spellSetsDTO = build.getSpellSets().stream()
-                .map(spellSet -> SpellSetDTO.builder()
-                        .id(spellSet.getId())
-                        .name(spellSet.getName())
-                        //.build(createBuildDTO(spellSet.getBuild()))
-                        .spells(spellSet.getSpells().stream()
-                                .map(this::createSpellDTO)
-                                .collect(Collectors.toList()))
-                        .build())
-                .collect(Collectors.toList());
-
-        List<ObjectSetDTO> objectSetsDTO = build.getObjectSet().stream()
-                .map(objectSet -> ObjectSetDTO.builder()
-                        .id(objectSet.getId())
-                        .name(objectSet.getName())
-                        //.build(createBuildDTO(objectSet.getBuild()))
-                        .objects(objectSet.getObjects().stream()
-                                .map(this::createObjectDTO)
-                                .collect(Collectors.toList()))
-                        .build())
-                .collect(Collectors.toList());
-
-        List<RuneSetDTO> runeSetsDTO = build.getRuneSet().stream()
-                .map(runeSet -> RuneSetDTO.builder()
-                        .id(runeSet.getId())
-                        .name(runeSet.getName())
-                        .main_rune(runeSet.getMain_rune())
-                        .main_sub_rune(runeSet.getMain_sub_rune())
-                        .secondary_rune(runeSet.getSecondary_rune())
-                        .secondary_sub_rune(runeSet.getSecondary_sub_rune())
-                        .additional_advantages(runeSet.getAdditional_advantages())
-                        //.build(createBuildDTO(runeSet.getBuild()))
-                        .build())
-                .collect(Collectors.toList());
-
-        return BuildDTO.builder()
-                .id(build.getId())
-                .buildName(build.getBuildName())
-                .user(userDTO)
-                .champions(championsDTO)
-                .spellSets(spellSetsDTO)
-                .objectSet(objectSetsDTO)
-                .runeSet(runeSetsDTO)
-                .build();
-    }
-
-    private UserDTO createUserDTO(User user){
-
-        return  UserDTO.builder()
-                .id(user.getId())
-                .email(user.getEmail())
-                .user_name(user.getUser_name())
-                .pass(user.getPass())
-                .image(BlobUtils.blobToBytes(user.getImage()))
-                .build();
-    }
-
-    private FavoriteBuildDTO createFavoriteBuildDTO(FavoriteBuild favoriteBuild){
-
-        UserDTO userDTO = createUserDTO(favoriteBuild.getUser());
-
-
-        return FavoriteBuildDTO.builder()
-                .id(favoriteBuild.getId())
-                .user(userDTO)
-                .builds(favoriteBuild.getBuilds())
-                .build();
-    }
-
-    private SpellDTO createSpellDTO(Spell spell) {
-        return SpellDTO.builder()
-                .id(spell.getId())
-                .name(spell.getName())
-                .champion_level(spell.getChampion_level())
-                .game_mode(spell.getGame_mode())
-                .description(spell.getDescription())
-                .cooldown(spell.getCooldown())
-                .image(BlobUtils.blobToBytes(spell.getImage()))
-                .build();
-    }
-
-    private ObjectDTO createObjectDTO(Object object) {
-        return ObjectDTO.builder()
-                .id(object.getId())
-                .name(object.getName())
-                .image(BlobUtils.blobToBytes(object.getImage()))
-                .build();
+        try {
+            List<UserDTO> userDTOS = userService.findAll();
+            return ResponseEntity.ok(userDTOS);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.emptyList());
+        }
     }
 }
