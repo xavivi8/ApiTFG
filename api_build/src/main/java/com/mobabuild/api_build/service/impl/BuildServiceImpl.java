@@ -10,6 +10,7 @@ import com.mobabuild.api_build.utils.BlobUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -145,7 +146,6 @@ public class BuildServiceImpl implements IBuildService {
     }
 
     private UserDTO createUserDTO(User user){
-
         return  UserDTO.builder()
                 .id(user.getId())
                 .email(user.getEmail())
@@ -222,8 +222,9 @@ public class BuildServiceImpl implements IBuildService {
                         .build())
                 .collect(Collectors.toList());
 
+        Build build;
         if(buildComand.getId() != null){
-            return Build.builder()
+            build = Build.builder()
                     .id(buildComand.getId())
                     .buildName(buildComand.getBuildName())
                     .user(user)
@@ -233,7 +234,7 @@ public class BuildServiceImpl implements IBuildService {
                     .runeSet(runeSets)
                     .build();
         } else{
-            return Build.builder()
+            build = Build.builder()
                     .buildName(buildComand.getBuildName())
                     .user(user)
                     .champions(buildComand.getChampions())
@@ -242,7 +243,12 @@ public class BuildServiceImpl implements IBuildService {
                     .runeSet(runeSets)
                     .build();
         }
+
+        user.addBuild(build); // Añadir este método para sincronizar la relación bidireccional
+
+        return build;
     }
+
 
     private User convertToUser(UserComand userComand){
         return  User.builder()
