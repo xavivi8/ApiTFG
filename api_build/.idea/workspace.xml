@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9c1c4298-fff0-4c64-9625-9fa5c8d7fce2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/RuneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/RuneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/SpellController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/SpellController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IRuneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IRuneService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/RuneServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/RuneServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/ChampionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/ChampionsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IChampionsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IChampionsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/ChampionsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/ChampionsServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,22 +125,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java</url>
-          <line>43</line>
+          <line>44</line>
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java</url>
-          <line>63</line>
+          <line>64</line>
           <option name="timeStamp" value="62" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java</url>
-          <line>75</line>
+          <line>76</line>
           <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java</url>
-          <line>24</line>
+          <line>25</line>
           <option name="timeStamp" value="71" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -170,7 +170,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java</url>
-          <line>92</line>
+          <line>93</line>
           <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -185,32 +185,32 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java</url>
-          <line>64</line>
+          <line>65</line>
           <option name="timeStamp" value="95" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/ChampionsController.java</url>
-          <line>146</line>
+          <line>111</line>
           <option name="timeStamp" value="96" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/ChampionsServiceImpl.java</url>
-          <line>36</line>
+          <line>82</line>
           <option name="timeStamp" value="98" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/ChampionsServiceImpl.java</url>
-          <line>40</line>
+          <line>86</line>
           <option name="timeStamp" value="100" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/ChampionsServiceImpl.java</url>
-          <line>84</line>
+          <line>130</line>
           <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/ChampionsServiceImpl.java</url>
-          <line>55</line>
+          <line>101</line>
           <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -235,12 +235,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java</url>
-          <line>61</line>
+          <line>62</line>
           <option name="timeStamp" value="110" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java</url>
-          <line>73</line>
+          <line>74</line>
           <properties class="com.mobabuild.api_build.service.impl.BuildServiceImpl" method="findByChampionsId">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
