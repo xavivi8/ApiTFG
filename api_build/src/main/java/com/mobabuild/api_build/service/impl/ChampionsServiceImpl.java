@@ -10,8 +10,10 @@ import com.mobabuild.api_build.persistence.IChampionsDAO;
 import com.mobabuild.api_build.service.IChampionsService;
 import com.mobabuild.api_build.utils.BlobUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -23,8 +25,52 @@ public class ChampionsServiceImpl implements IChampionsService {
     private IChampionsDAO championsDAO;
 
     @Override
-    public List<Champions> findAll() {
-        return championsDAO.findAll();
+    public List<ChampionsDTO> findAll() {
+        List<Champions> champions = championsDAO.findAll();
+        List<ChampionsDTO> championsDTOS = new ArrayList<>();
+
+        if(!champions.isEmpty()){
+            championsDTOS = new ArrayList<>();
+            for(Champions champion : champions){
+                // Convierte los builds a BuildDTO
+                List<BuildDTO> buildDTOs = champion.getBuilds().stream()
+                        .map(build -> BuildDTO.builder()
+                                .id(build.getId())
+                                .buildName(build.getBuildName())
+                                .user(UserDTO.builder() // Conversión directa de User a UserDTO
+                                        .id(build.getUser().getId())
+                                        .user_name(build.getUser().getUser_name())
+                                        .email(build.getUser().getEmail())
+                                        .build())
+                                .spellSets(build.getSpellSets().stream() // Conversión directa de SpellSet a SpellSetDTO
+                                        .map(spellSet -> SpellSetDTO.builder()
+                                                .id(spellSet.getId())
+                                                .name(spellSet.getName())
+                                                .build())
+                                        .collect(Collectors.toList()))
+                                .objectSet(build.getObjectSet().stream() // Conversión directa de ObjectSet a ObjectSetDTO
+                                        .map(objectSet -> ObjectSetDTO.builder()
+                                                .id(objectSet.getId())
+                                                .name(objectSet.getName())
+                                                // Agrega más campos según sea necesario
+                                                .build())
+                                        .collect(Collectors.toList()))
+                                .runeSet(null)
+                                .build())
+                        .collect(Collectors.toList());
+
+                ChampionsDTO championsDTO = ChampionsDTO.builder()
+                        .id(champion.getId())
+                        .name(champion.getName())
+                        .builds(buildDTOs)
+                        .build();
+                championsDTOS.add(championsDTO);
+
+            }
+            return championsDTOS;
+        } else {
+            return championsDTOS;
+        }
     }
 
     @Override

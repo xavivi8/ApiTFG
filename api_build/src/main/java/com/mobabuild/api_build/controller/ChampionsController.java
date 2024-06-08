@@ -71,45 +71,10 @@ public class ChampionsController {
 
     @GetMapping("/findAll")
     public ResponseEntity<?> findAll(){
-        List<Champions> champions = championsService.findAll();
+        List<ChampionsDTO> championsDTOS = championsService.findAll();
 
-        if(!champions.isEmpty()){
-            List<ChampionsDTO> championsDTOS = new ArrayList<>();
-            for(Champions champion : champions){
-                // Convierte los builds a BuildDTO
-                List<BuildDTO> buildDTOs = champion.getBuilds().stream()
-                        .map(build -> BuildDTO.builder()
-                                .id(build.getId())
-                                .buildName(build.getBuildName())
-                                .user(UserDTO.builder() // Conversión directa de User a UserDTO
-                                        .id(build.getUser().getId())
-                                        .user_name(build.getUser().getUser_name())
-                                        .email(build.getUser().getEmail())
-                                        .build())
-                                .spellSets(build.getSpellSets().stream() // Conversión directa de SpellSet a SpellSetDTO
-                                        .map(spellSet -> SpellSetDTO.builder()
-                                                .id(spellSet.getId())
-                                                .name(spellSet.getName())
-                                                .build())
-                                        .collect(Collectors.toList()))
-                                .objectSet(build.getObjectSet().stream() // Conversión directa de ObjectSet a ObjectSetDTO
-                                        .map(objectSet -> ObjectSetDTO.builder()
-                                                .id(objectSet.getId())
-                                                .name(objectSet.getName())
-                                                // Agrega más campos según sea necesario
-                                                .build())
-                                        .collect(Collectors.toList()))
-                                .runeSet(null)
-                                .build())
-                        .collect(Collectors.toList());
+        if(!championsDTOS.isEmpty()){
 
-                ChampionsDTO championsDTO = ChampionsDTO.builder()
-                        .id(champion.getId())
-                        .name(champion.getName())
-                        .builds(buildDTOs)
-                        .build();
-                championsDTOS.add(championsDTO);
-            }
             return ResponseEntity.ok(championsDTOS);
         }
 

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public interface IChampionsService {
 
-    List<Champions> findAll();
+    List<ChampionsDTO> findAll();
 
     Optional<Champions> findById(Long id);
 
