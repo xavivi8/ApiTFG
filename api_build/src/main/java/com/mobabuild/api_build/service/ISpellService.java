@@ -9,11 +9,11 @@ import java.util.Optional;
 
 public interface ISpellService {
 
-    List<Spell> findAll();
+    List<SpellDTO> findAll();
 
-    Optional<Spell> findById(Long id);
+    SpellDTO findById(Long id);
 
-    void save(Spell spell);
+    SpellDTO save(SpellComand spellComand);
 
     void deleteById(Long id);
 
