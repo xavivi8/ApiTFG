@@ -10,11 +10,21 @@ import java.util.List;
 @Setter
 @Getter
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "build" )
 public class Build {
+
+    public Build(Long id, String buildName, User user, Champions champions, List<SpellSet> spellSets, List<ObjectSet> objectSet, List<RuneSet> runeSet) {
+        this.id = id;
+        this.buildName = buildName;
+        this.user = user;
+        this.champions = champions;
+        this.spellSets = spellSets;
+        this.objectSet = objectSet;
+        this.runeSet = runeSet;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
