@@ -9,6 +9,7 @@ import com.mobabuild.api_build.entities.Rune;
 import com.mobabuild.api_build.service.IRuneService;
 import com.mobabuild.api_build.utils.BlobUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,49 +26,29 @@ public class RuneController {
 
     @GetMapping("/findById/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id) {
-        Optional<Rune> runeOptional = runeService.findById(id);
-
-        if (runeOptional.isPresent()) {
-            Rune rune = runeOptional.get();
-
-            RuneDTO runeDTO = RuneDTO.builder()
-                    .id(rune.getId())
-                    .name(rune.getName())
-                    .rowType(rune.getRowType())
-                    .group_name(rune.getGroup_name())
-                    .description(rune.getDescription())
-                    .long_description(rune.getLong_description())
-                    .image(BlobUtils.blobToBytes(rune.getImage()))
-                    .build();
-
-            return ResponseEntity.ok(runeDTO);
+        try {
+            RuneDTO runeDTO = runeService.findById(id);
+            if (runeDTO != null && runeDTO.getId() != null) {
+                return ResponseEntity.ok(runeDTO);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al encontrar la runa por el id: " + id);
         }
-
-        return ResponseEntity.notFound().build();
     }
 
     @GetMapping("/findAll")
     public ResponseEntity<?> findAll() {
-        List<Rune> runeList = runeService.findAll();
-
-        if (!runeList.isEmpty()) {
-            List<RuneDTO> runeDTOList = new ArrayList<>();
-            for (Rune rune : runeList) {
-                RuneDTO runeDTO = RuneDTO.builder()
-                        .id(rune.getId())
-                        .name(rune.getName())
-                        .rowType(rune.getRowType())
-                        .group_name(rune.getGroup_name())
-                        .description(rune.getDescription())
-                        .long_description(rune.getLong_description())
-                        .image(BlobUtils.blobToBytes(rune.getImage()))
-                        .build();
-                runeDTOList.add(runeDTO);
+        try {
+            List<RuneDTO> runeDTOList = runeService.findAll();
+            if(!runeDTOList.isEmpty()){
+                return ResponseEntity.ok(runeDTOList);
             }
-            return ResponseEntity.ok(runeDTOList);
+            return ResponseEntity.notFound().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al buscar hechizos: " + e.getMessage());
         }
-
-        return ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/deleteById/{id}")
@@ -83,25 +64,8 @@ public class RuneController {
     @PostMapping("/create")
     public ResponseEntity<?> insertRune(@RequestBody RuneComand runeComand) {
         try {
-            Rune rune = Rune.builder()
-                    .name(runeComand.getName())
-                    .rowType(runeComand.getRowType())
-                    .group_name(runeComand.getGroup_name())
-                    .description(runeComand.getDescription())
-                    .long_description(runeComand.getLong_description())
-                    .image(BlobUtils.bytesToBlob(runeComand.getImage()))
-                    .build();
 
-            runeService.save(rune);
-
-            RuneDTO runeDTO = RuneDTO.builder()
-                    .name(runeComand.getName())
-                    .rowType(runeComand.getRowType())
-                    .group_name(runeComand.getGroup_name())
-                    .description(runeComand.getDescription())
-                    .long_description(runeComand.getLong_description())
-                    .image(BlobUtils.blobToBytes(BlobUtils.bytesToBlob(runeComand.getImage())))
-                    .build();
+            RuneDTO runeDTO = runeService.save(runeComand);
 
             return ResponseEntity.ok(runeDTO);
         } catch (Exception e) {

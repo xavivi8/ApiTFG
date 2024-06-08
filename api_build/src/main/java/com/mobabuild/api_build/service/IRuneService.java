@@ -9,11 +9,11 @@ import java.util.Optional;
 
 public interface IRuneService {
 
-    List<Rune> findAll();
+    List<RuneDTO> findAll();
 
-    Optional<Rune> findById(Long id);
+    RuneDTO findById(Long id);
 
-    void save(Rune rune);
+    RuneDTO save(RuneComand runeComand);
 
     void deleteById(Long id);
 
