@@ -63,7 +63,7 @@ public class SpellController {
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody SpellComand spellComand){
         try {
-            
+
             SpellDTO spellDTO = spellService.save(spellComand);
 
             return ResponseEntity.ok(spellDTO);
