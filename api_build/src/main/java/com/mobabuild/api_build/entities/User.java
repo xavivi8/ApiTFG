@@ -70,4 +70,15 @@ public class User {
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     private FavoriteBuild favoriteBuild;
+
+    // Métodos para sincronizar relaciones bidireccionales
+    public void addBuild(Build build) {
+        builds.add(build);
+        build.setUser(this);
+    }
+
+    public void removeBuild(Build build) {
+        builds.remove(build);
+        build.setUser(null);
+    }
 }

@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9c1c4298-fff0-4c64-9625-9fa5c8d7fce2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/ChampionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/ChampionsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IChampionsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/IChampionsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/entities/Build.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/entities/Build.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/entities/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/ChampionsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/ChampionsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,24 +49,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ApiBuildApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.api_build [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.api_build [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.api_build [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.api_build [org.springframework.boot:spring-boot-maven-plugin:3.2.5:repackage].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.api_build [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.api_build [verify].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jmart/OneDrive/Imágenes/LOL/api_build&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ApiBuildApplication.executor": "Run",
+    "Maven.api_build [clean].executor": "Run",
+    "Maven.api_build [compile].executor": "Run",
+    "Maven.api_build [install].executor": "Run",
+    "Maven.api_build [org.springframework.boot:spring-boot-maven-plugin:3.2.5:repackage].executor": "Run",
+    "Maven.api_build [package].executor": "Run",
+    "Maven.api_build [verify].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/jmart/OneDrive/Imágenes/LOL/api_build",
+    "settings.editor.selected.configurable": "project.propCompiler"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="ApiBuildApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.mobabuild.api_build.ApiBuildApplication" />
@@ -175,11 +175,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/BuildController.java</url>
-          <line>86</line>
-          <option name="timeStamp" value="93" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/BuildController.java</url>
           <line>88</line>
           <option name="timeStamp" value="94" />
         </line-breakpoint>
@@ -220,23 +215,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java</url>
-          <line>235</line>
-          <option name="timeStamp" value="105" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java</url>
-          <line>224</line>
-          <option name="timeStamp" value="106" />
+          <line>62</line>
+          <option name="timeStamp" value="110" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java</url>
           <line>225</line>
-          <option name="timeStamp" value="109" />
+          <option name="timeStamp" value="118" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="110" />
+          <line>192</line>
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/controller/BuildController.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java</url>
+          <line>136</line>
+          <option name="timeStamp" value="123" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java</url>
