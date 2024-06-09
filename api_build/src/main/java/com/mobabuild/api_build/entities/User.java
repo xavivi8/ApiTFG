@@ -44,8 +44,8 @@ public class User {
     private String pass;
 
     @Column(name = "image", columnDefinition = "LONGBLOB")
-    @JsonSerialize(using = BlobSerializer.class)
-    @JsonDeserialize(using = BlobDeserializer.class)
+    //@JsonSerialize(using = BlobSerializer.class)
+    //@JsonDeserialize(using = BlobDeserializer.class)
     private Blob image;
 
     /*
