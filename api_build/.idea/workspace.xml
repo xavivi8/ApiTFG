@@ -237,7 +237,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/mobabuild/api_build/service/impl/BuildServiceImpl.java</url>
           <line>75</line>
-          <properties class="com.mobabuild.api_build.service.impl.BuildServiceImpl" method="findByChampionsId">
+          <properties class="com.mobabuild.api_build.service.impl.BuildServiceImpl">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
