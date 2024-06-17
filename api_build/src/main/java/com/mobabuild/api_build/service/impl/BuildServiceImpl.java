@@ -45,19 +45,19 @@ public class BuildServiceImpl implements IBuildService {
         Build build = convertToBuild(buildComand);
 
         // Establecer relaciones bidireccionales para objectSet
-        for (ObjectSet objectSet : build.getObjectSet()) {
-            objectSet.setBuild(build);
-        }
-
-        // Establecer relaciones bidireccionales para spellSets
-        for (SpellSet spellSet : build.getSpellSets()) {
-            spellSet.setBuild(build);
-        }
-
-        // Establecer relaciones bidireccionales para runeSet
-        for (RuneSet runeSet : build.getRuneSet()) {
-            runeSet.setBuild(build);
-        }
+//        for (ObjectSet objectSet : build.getObjectSet()) {
+//            objectSet.setBuild(build);
+//        }
+//
+//        // Establecer relaciones bidireccionales para spellSets
+//        for (SpellSet spellSet : build.getSpellSets()) {
+//            spellSet.setBuild(build);
+//        }
+//
+//        // Establecer relaciones bidireccionales para runeSet
+//        for (RuneSet runeSet : build.getRuneSet()) {
+//            runeSet.setBuild(build);
+//        }
 
         // Guardar la entidad build, lo que en cascada guarda las entidades relacionadas
         buildDAO.save(build);
